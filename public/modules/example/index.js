@@ -1,9 +1,9 @@
 define([
-	'/modules/example/controllers/main.js',
-	'/modules/example/directives/directiveName.js'
-/*	'/modules/example/filters/filterName',
-	'/modules/example/services/resource',
-	'/modules/example/services/service'*/
+	'./controllers/main.js',
+	'./directives/directiveName.js'
+/*	'./filters/filterName',
+	'./services/resource',
+	'./services/service'*/
 ], function () {
 	angular.module('exampleModule', [
 		'controller',

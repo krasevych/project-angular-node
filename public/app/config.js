@@ -7,7 +7,8 @@ require.config({
 		'ngRoute':'/bower_components/angular-route/angular-route.min',
 		'angular_strap': '/bower_components/angular-strap/dist/angular-strap.min',
 		'angular_strap_tpl': '/bower_components/angular-strap/dist/angular-strap.tpl.min',
-		'ocLazyLoad':'/bower_components/ocLazyLoad/ocLazyLoad.min'
+		'ocLazyLoad':'/bower_components/ocLazyLoad/ocLazyLoad.min',
+
 
 	},
 	shim: {
@@ -35,13 +36,9 @@ require.config({
 		'angular_strap_tpl'
 	]
 });
-
-require
-(
-	[
+require([
 		'app'
-	],
-	function (app) {
+	],function (app) {
 		angular.bootstrap(document, ['app']);
 	}
 );
