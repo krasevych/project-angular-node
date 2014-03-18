@@ -3,7 +3,7 @@ require.config({
 		'jquery': [ 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min',
 			'/bower_components/jquery/dist/jquery.min.js'],//v2.1
 		'angular': '/bower_components/angular/angular.min',
-		'ng_resource':'/bower_components/angular-resource/angular-resource.min',
+		'ngResource':'/bower_components/angular-resource/angular-resource.min',
 		'ngRoute':'/bower_components/angular-route/angular-route.min',
 		'angular_strap': '/bower_components/angular-strap/dist/angular-strap.min',
 		'angular_strap_tpl': '/bower_components/angular-strap/dist/angular-strap.tpl.min',

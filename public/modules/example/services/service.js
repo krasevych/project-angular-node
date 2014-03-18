@@ -1,11 +1,8 @@
 define([], function()
 {
-	angular.module('appService',[]).service('service',
-		[
-			function()
-			{
-				this.val='';
+	return angular.module('appService',[]).service('service',function(){
+
+				this.val='service';
 				this.run=function(){};
-			}
-		]);
+			});
 });

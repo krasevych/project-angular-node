@@ -1,12 +1,15 @@
-define([], function()
+define(['../services/factory.js','ngResource'], function(r)
 {
-	angular.module('controller',[]).controller('example',
+	console.log(r);
+	angular.module('controller',['ngResource']).controller('example',
 		[
 			'$scope',
+//			'$factory',
+			'service',
 
-			function($scope)
-			{
-				$scope.example ='example';
+			function($scope,service){
+				console.log(service);
+				$scope.example ='dss';
 			}
 		]);
 });

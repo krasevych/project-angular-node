@@ -1,5 +1,5 @@
-define(['routes', '/common/services/dependencyResolver.js','ngRoute','ng_resource','ocLazyLoad'], function (routes, dependencyResolver) {
-	return angular.module('app', ['ngRoute','ngResource','oc.lazyLoad'])
+define(['routes', '/common/services/dependencyResolver.js','ngRoute','ocLazyLoad'], function (routes, dependencyResolver) {
+	return angular.module('app', ['ngRoute','oc.lazyLoad'])
 
 /*	app.config(
 		[
