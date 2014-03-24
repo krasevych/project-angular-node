@@ -1,8 +1,11 @@
-define([], function()
-{
-	return angular.module('appService',[]).service('service',function(){
+define(function (require) {
+	return function (module) {
 
-				this.val='service';
-				this.run=function(){};
-			});
+		module.service('service', [function () {
+
+			this.val = 'service';
+			this.run = function () {
+			};
+		}]);
+	}
 });

@@ -1,7 +1,6 @@
 require.config({
 	paths: {
-		'jquery': [ 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min',
-			'/bower_components/jquery/dist/jquery.min.js'],//v2.1
+		'jquery': '/bower_components/jquery/dist/jquery.min.js',//v2.1
 		'angular': '/bower_components/angular/angular.min',
 		'ngResource':'/bower_components/angular-resource/angular-resource.min',
 		'ngRoute':'/bower_components/angular-route/angular-route.min',

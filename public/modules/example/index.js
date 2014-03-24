@@ -1,19 +1,10 @@
-define([
-	'./controllers/main.js',
-	'./directives/directiveName.js',
-	'./services/factory.js',
-	'./services/service.js'
-/*	'./filters/filterName',
-	'./services/resource',
-	'./services/service'*/
-], function () {
-	angular.module('exampleModule', [
-		'controller',
-		'directive',
-		'factoryApp',
-		'appService'
-/*		'filter',
-		'appResource',
-		'appService',*/
-	]);
+define(function (require) {
+
+	require('ngResource');
+	var module = angular.module('exampleModule', ['ngResource']);
+
+	require('./controllers/main.js')(module);
+
+
+	return module;
 });

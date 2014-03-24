@@ -1,5 +1,7 @@
-define([], function () {
-	return angular.module('factoryApp',[]).factory('$factory', function () {
+define(function(require)
+{
+	return function(module){
+	module.factory('$factory',[function () {
 		// Service logic
 		// ...
 
@@ -12,5 +14,6 @@ define([], function () {
 			}
 		};
 
-	});
+	}]);
+	}
 });

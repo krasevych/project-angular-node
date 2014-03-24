@@ -1,6 +1,7 @@
-define([], function()
+define(function(require)
 {
-	return angular.module('providerApp',[]).provider('provider', function () {
+	return function(module){
+	module.provider('provider',[function () {
 
 		// Private variables
 		var salutation = 'Hello';
@@ -21,7 +22,8 @@ define([], function()
 		this.$get = function () {
 			return new Greeter();
 		};
-	});
+	}]);
+	}
 });
 
 
