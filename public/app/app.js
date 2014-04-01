@@ -9,15 +9,7 @@ define( function (require) {
 			 'ngRoute',
 			 'exampleModule'
 		 ]);
-	app.config(
-		[
-			'$routeProvider',
-			function ($routeProvider) {
-				$routeProvider
-					.when('/', {templateUrl:'/modules/example/views/main.html'});
+	require('configs/router')(app);
 
-				$routeProvider.otherwise({redirectTo: '/'});
-			}
-		]);
 	return app;
 });

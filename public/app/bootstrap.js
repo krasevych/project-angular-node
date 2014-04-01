@@ -1,11 +1,11 @@
 require.config({
 	paths: {
-		'jquery': '/bower_components/jquery/dist/jquery.min.js',//v2.1
-		'angular': '/bower_components/angular/angular.min',
-		'ngResource':'/bower_components/angular-resource/angular-resource.min',
-		'ngRoute':'/bower_components/angular-route/angular-route.min',
-		'angular_strap': '/bower_components/angular-strap/dist/angular-strap.min',
-		'angular_strap_tpl': '/bower_components/angular-strap/dist/angular-strap.tpl.min',
+		'jquery': '../bower_components/jquery/dist/jquery.min.js',//v2.1
+		'angular': '../bower_components/angular/angular',
+		'ngResource':'../bower_components/angular-resource/angular-resource.min',
+		'ngRoute':'../bower_components/angular-route/angular-route.min',
+		'angular_strap': '../bower_components/angular-strap/dist/angular-strap.min',
+		'angular_strap_tpl': '../bower_components/angular-strap/dist/angular-strap.tpl.min',
 	},
 	shim: {
 		'angular_strap_tpl': {
