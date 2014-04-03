@@ -1,7 +1,7 @@
 define( function (require) {
 //	require modules
 	require('ngRoute');
-	require('/modules/example/index.js');
+	require('../modules/example/index.js');
 
 
 	 var app=angular.module('app',
@@ -9,7 +9,7 @@ define( function (require) {
 			 'ngRoute',
 			 'exampleModule'
 		 ]);
-	require('configs/router')(app);
+	require('./configs/router')(app);
 
 	return app;
 });

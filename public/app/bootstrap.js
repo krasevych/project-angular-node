@@ -33,7 +33,7 @@ require.config({
 	]
 });
 require([
-		'app'
+		'./app'
 	],function (app) {
 		angular.bootstrap(document, ['app']);
 	}
