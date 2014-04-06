@@ -1,8 +1,8 @@
 ({
-	baseUrl: "../app/",
+	baseUrl: "../../app/",
 	name: "bootstrap",
-	out: "index.js",
-	mainConfigFile: '../app/bootstrap.js',
+	out: "../index.js",
+	mainConfigFile: '../../app/bootstrap.js',
 	paths: {
 		requireLib: '../bower_components/requirejs/require'
 	},
