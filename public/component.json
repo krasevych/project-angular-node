@@ -1,0 +1,13 @@
+{
+  "name": "myProject",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "",
+    "angular-resource": "~1.2.16",
+    "angular-route": "~1.2.16",
+    "angular-strap": "",
+    "bootstrap": "",
+    "jquery": "",
+    "requirejs": ""
+  }
+}
