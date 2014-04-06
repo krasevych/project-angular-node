@@ -3,9 +3,11 @@ define(function (require) {
 
 		module.service('service', [function () {
 
-			this.val = 'service';
+			var val = 'I am example';
 			this.run = function () {
+				return val;
 			};
+
 		}]);
 	}
 });

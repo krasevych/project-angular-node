@@ -9,7 +9,12 @@ define(function(require)
 
 		var resource= $resource('url/:id',
 			{ id: 'example' }, {
-				update: { method: 'PUT' }
+				update: { method: 'PUT' },
+				lang:{
+					method:'GET',
+					cache:true,
+					url:'/modules/example/json/lang.json'
+				}
 			}
 		);
 
