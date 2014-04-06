@@ -1,15 +1,17 @@
 define(function (require) {
 //	require modules
 	require('ngRoute');
-	require('../modules/example/index.js');
 	require('../modules/header/index.js');
+	require('../modules/home/index.js');
+	require('../modules/footer/index.js');
 
 // created module of app
 	 var app=angular.module('app',
 		 [
 			 'ngRoute',
-			 'exampleModule',
-			 'header'
+			 'header',
+			 'home',
+			 'footer'
 		 ]);
 
 //	require  components of app

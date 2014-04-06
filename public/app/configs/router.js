@@ -4,7 +4,7 @@ define(function (require) {
 			function ($routeProvider) {
 				$routeProvider
 
-					.when('/', {templateUrl: '/modules/example/views/main.html'});
+					.when('/', {templateUrl: '/modules/home/views/main.html'});
 
 				$routeProvider.otherwise({redirectTo: '/'});
 			})
