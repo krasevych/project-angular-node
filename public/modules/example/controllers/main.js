@@ -11,11 +11,25 @@ define(function (require) {
 				'service',
 				'provider',
 
-				function ($scope, $resourceM, service, provider) {
+				function ($scope, $res, service, provider) {
+//					values
+//					  var
+					var hello = provider.greet();
+					var who=service.run();
 
-					console.log(service);
-					console.log(provider.greet());
-					$scope.example = 'dss';
+//					  $scope
+					console.log($res);
+					$scope.example = hello+'. '+who;
+					$scope.lang=$res.lang();
+
+//					  $rootScope
+
+//					buttons
+
+//					watches
+
+//					events
+
 				}
 			]);
 	}
