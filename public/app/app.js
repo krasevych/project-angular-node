@@ -3,6 +3,8 @@ define(function (require) {
 	require('ngRoute');
 	require('../modules/header/index.js');
 	require('../modules/home/index.js');
+	require('../modules/login/index.js');
+	require('../modules/registration/index.js');
 	require('../modules/footer/index.js');
 
 // created module of app
@@ -11,6 +13,8 @@ define(function (require) {
 			 'ngRoute',
 			 'header',
 			 'home',
+			 'login',
+			 'registration',
 			 'footer'
 		 ]);
 
