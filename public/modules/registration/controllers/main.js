@@ -11,7 +11,6 @@ define(function (require) {
 //					values
 //					  var
 
-
 //					  $scope
 					$scope.lang=$res.lang();
 

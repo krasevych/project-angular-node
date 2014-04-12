@@ -1,2 +1,42 @@
 #login.login(ng-controller="login.ctrl.main"  ng-cloak )
-  .container {{ lang.mod_name }}
+  .container
+    // form for login
+    form.form-horizontal.col-sm-6.col-sm-offset-3(
+      role="form"
+      name="login"
+    )
+      // Email
+      .form-group(ng-class="{'has-error':err_email || err_email_req}")
+        .row
+          .controls.col-md-6.col-md-offset-3
+            input#email.form-control(
+              name="email"
+              type="email"
+              placeholder="{{lang.email}}"
+              ng-model="email"
+              required="true"
+            )
+            .err-msg(ng-show="err_email_req=login.email.$error.required && !login.email.$pristine") {{ lang.error.required }}
+            .err-msg(ng-show="err_email=login.email.$error.email && !login.email.$pristine") {{ lang.error.email }}
+      // Password
+      .form-group
+        .row
+         .controls.col-md-6.col-md-offset-3
+           input#password.form-control(
+             type="password"
+             placeholder="{{lang.password}}"
+             ng-model="password"
+             required="true"
+           )
+      // login button
+      .form-group
+        .row
+          .controls.col-md-6.col-md-offset-3
+            button#login.btn.btn-warning.form-control(
+              type="button"
+              ng-model="button"
+            ) {{ lang.login }}
+      .form-group
+        .row
+          .col-md-6.col-md-offset-3
+            a(href="#") {{ lang.registration }}

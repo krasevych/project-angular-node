@@ -1,0 +1,10 @@
+{
+	"email":"Email",
+	"password":"Password",
+	"login":"Login",
+	"registration":"Registration",
+	"error":{
+		"email":"Email is incorrect",
+		"required":"Field must be completed"
+	}
+}
