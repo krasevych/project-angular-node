@@ -18,7 +18,10 @@ define(function(require)
 				login:{
 					method:'POST',
 					url:'/login',
-					headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+					headers: {
+						'Content-Type': 'application/x-www-form-urlencoded',
+						'x-requested-with':'XMLHttpRequest'
+					}
 			}
 			}
 		);

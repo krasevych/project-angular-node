@@ -2,6 +2,7 @@
 <div id="login" ng-controller="login.ctrl.main" ng-cloak="ng-cloak" class="login">
   <div class="container">
     <!-- form for login-->
+    <div class="error-box pull-right"></div>
     <form role="form" name="loginForm" ng-submit="submit()" class="form-horizontal col-sm-6 col-sm-offset-3">
       <!-- Email-->
       <div ng-class="{'has-error':err_email || err_email_req}" class="form-group">

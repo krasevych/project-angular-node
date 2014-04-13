@@ -5,6 +5,9 @@ var util=require('util');
 
 Schema = mongoose.Schema;
 var schema = new Schema({
+	name: {
+		type: String
+	},
 	email: {
 		type: String,
 		unique: true,

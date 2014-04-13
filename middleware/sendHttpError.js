@@ -4,6 +4,7 @@ module.exports=function(req,res,next){
 		if(res.req.headers['x-requested-with']=='XMLHttpRequest'){
 			res.json(err);
 		}else{
+			console.log(res.req.headers);
 			res.render('error',{error:err});
 		}
 	};

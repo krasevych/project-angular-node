@@ -1,6 +1,7 @@
 define(function (require) {
 //	require modules
 	require('ngRoute');
+	require('ngAnimate');
 	require('../modules/header/index.js');
 	require('../modules/home/index.js');
 	require('../modules/login/index.js');
@@ -10,6 +11,8 @@ define(function (require) {
 // created module of app
 	 var app=angular.module('app',
 		 [
+			 'mgcrea.ngStrap',
+			 'ngAnimate',
 			 'ngRoute',
 			 'header',
 			 'home',
