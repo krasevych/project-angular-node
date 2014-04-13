@@ -5,7 +5,7 @@ var util=require('util');
 
 Schema = mongoose.Schema;
 var schema = new Schema({
-	name: {
+	email: {
 		type: String,
 		unique: true,
 		required: true
@@ -42,11 +42,11 @@ schema.methods.checkPassword = function (password) {
 	return this.encryptPassword(password) === this.hashedPassword;
 };
 
-schema.statics.authorize=function(name,password,callback){
+schema.statics.authorize=function(email,password,callback){
 var User=this;
 	async.waterfall([
 		function (callback) {
-			User.findOne({name: name}, callback);
+			User.findOne({email: email}, callback);
 		},
 		function (user, callback) {
 			if (user) {
@@ -58,7 +58,7 @@ var User=this;
 				}
 			}
 			else {
-				var user = new User({name: name, password: password});
+				var user = new User({email: email, password: password});
 				user.save(function (err) {
 					if (err) return callback(err);
 					callback(null, user);

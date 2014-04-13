@@ -18,7 +18,11 @@ define(function (require) {
 //					  $rootScope
 
 //					buttons
+					$scope.submit = function () {
+						console.log(this);
+						$res.login('data='+encodeURIComponent(angular.toJson($scope.login)));
 
+					};
 //					watches
 
 //					events

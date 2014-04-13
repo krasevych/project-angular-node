@@ -8,14 +8,18 @@ define(function(require)
 			function ($resource) {
 
 		var resource= $resource('url/:id',
-			{ id: 'example' }, {
-				update: { method: 'PUT' },
+			{  }, {
 				lang:{
 					method:'GET',
 					cache:true,
 					url:'/modules/login/json/lang/:lang',
 					params:{lang:'en.json'}
-				}
+				},
+				login:{
+					method:'POST',
+					url:'/login',
+					headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			}
 			}
 		);
 

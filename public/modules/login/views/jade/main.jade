@@ -3,7 +3,8 @@
     // form for login
     form.form-horizontal.col-sm-6.col-sm-offset-3(
       role="form"
-      name="login"
+      name="loginForm"
+      ng-submit="submit()"
     )
       // Email
       .form-group(ng-class="{'has-error':err_email || err_email_req}")
@@ -13,11 +14,11 @@
               name="email"
               type="email"
               placeholder="{{lang.email}}"
-              ng-model="email"
+              ng-model="login.email"
               required="true"
             )
-            .err-msg(ng-show="err_email_req=login.email.$error.required && !login.email.$pristine") {{ lang.error.required }}
-            .err-msg(ng-show="err_email=login.email.$error.email && !login.email.$pristine") {{ lang.error.email }}
+            .err-msg(ng-show="err_email_req=loginForm.email.$error.required && !loginForm.email.$pristine") {{ lang.error.required }}
+            .err-msg(ng-show="err_email=loginForm.email.$error.email && !loginForm.email.$pristine") {{ lang.error.email }}
       // Password
       .form-group
         .row
@@ -25,7 +26,7 @@
            input#password.form-control(
              type="password"
              placeholder="{{lang.password}}"
-             ng-model="password"
+             ng-model="login.password"
              required="true"
            )
       // login button
@@ -33,10 +34,9 @@
         .row
           .controls.col-md-6.col-md-offset-3
             button#login.btn.btn-warning.form-control(
-              type="button"
-              ng-model="button"
+              type="submit"
             ) {{ lang.login }}
       .form-group
         .row
           .col-md-6.col-md-offset-3
-            a(href="#") {{ lang.registration }}
+            a(href="#registration") {{ lang.registration }}
