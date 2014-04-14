@@ -14,16 +14,23 @@ define(function (require) {
 
 //					  $scope
 					$scope.lang=$res.lang();
+					$scope.btn_login=true;
 
 //					  $rootScope
 
 //					buttons
 					$scope.logout=function(){
+						$scope.btn_login=true;
 						$res.logout();
 					};
 //					watches
 
 //					events
+					$scope.$on('login',function(e,res){
+						$scope.btn_login=false;
+						console.log(res);
+					  $scope.email = res.name? res.name:res.email;
+					});
 
 				}
 			]);

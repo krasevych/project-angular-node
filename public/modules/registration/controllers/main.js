@@ -17,7 +17,24 @@ define(function (require) {
 //					  $rootScope
 
 //					buttons
+					$scope.submit = function (form) {
+						if (form.$valid) {
+							$res.registration('data=' + encodeURIComponent(angular.toJson($scope.registration)),
+								function (res) {
+						/*				$rootScope.$broadcast('registration',res);
+										$location.path('/');*/
+								}, function (err) {
+									if (err.status == '403') {
+										$scope.err403 = true;
+									}
+								});
+						}else{
+							form.$error.required.forEach(function (el) {
+								el.$pristine = false;
+							})
+						}
 
+					};
 //					watches
 
 //					events

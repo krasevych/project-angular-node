@@ -1,4 +1,44 @@
 
 <div id="registration" ng-controller="registration.ctrl.main" ng-cloak="ng-cloak" class="registration">
-  <div class="container">{{ lang.mod_name }}</div>
+  <div class="container">
+    <!-- form for registration-->
+    <form role="form" name="registrationForm" class="form-horizontal col-sm-6 col-sm-offset-3">
+      <!-- name-->
+      <div ng-class="{'has-error':err_email || err_email_req || err403}" class="form-group">
+        <div class="row">
+          <div class="controls col-md-6 col-md-offset-3">
+            <input id="email" name="name" type="text" placeholder="{{lang.name}}" ng-model="registration.name" class="form-control"/>
+          </div>
+        </div>
+      </div>
+      <!-- Email-->
+      <div ng-class="{'has-error':err_email || err_email_req || err403}" class="form-group">
+        <div class="row">
+          <div class="controls col-md-6 col-md-offset-3">
+            <input id="email" name="email" type="email" placeholder="{{lang.email}}" ng-model="registration.email" ng-keyup="err403=false" required="true" class="form-control"/>
+            <div ng-show="err_email_req=registrationForm.email.$error.required &amp;&amp; !registrationForm.email.$pristine" class="err-msg">{{ lang.error.required }}</div>
+            <div ng-show="err_email=registrationForm.email.$error.email &amp;&amp; !registrationForm.email.$pristine" class="err-msg">{{ lang.error.email }}</div>
+            <div ng-show="err403" class="err-msg">{{ lang.error.403 }}</div>
+          </div>
+        </div>
+      </div>
+      <!-- Password-->
+      <div ng-class="{'has-error':err_password_req || err403}" class="form-group">
+        <div class="row">
+          <div class="controls col-md-6 col-md-offset-3">
+            <input id="password" type="password" name="password" placeholder="{{lang.password}}" ng-model="registration.password" ng-keyup="err403=false" required="true" class="form-control"/>
+            <div ng-show="err_password_req=registrationForm.password.$error.required &amp;&amp; !registrationForm.password.$pristine" class="err-msg">{{ lang.error.required }}</div>
+          </div>
+        </div>
+      </div>
+      <!-- registration button-->
+      <div class="form-group">
+        <div class="row">
+          <div class="controls col-md-6 col-md-offset-3">
+            <button id="registration" type="submit" ng-click="submit(registrationForm)" class="btn btn-warning form-control">{{ lang.registration }}</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
