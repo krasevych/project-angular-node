@@ -18,7 +18,9 @@ define(function (require) {
 //					  $rootScope
 
 //					buttons
-
+					$scope.logout=function(){
+						$res.logout();
+					};
 //					watches
 
 //					events
