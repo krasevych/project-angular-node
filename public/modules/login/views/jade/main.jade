@@ -1,14 +1,15 @@
 #login.login(ng-controller="login.ctrl.main"  ng-cloak )
   .container
     // form for login
-    .error-box.pull-right
+
     form.form-horizontal.col-sm-6.col-sm-offset-3(
       role="form"
       name="loginForm"
       ng-submit="submit()"
     )
+      .error-box
       // Email
-      .form-group(ng-class="{'has-error':err_email || err_email_req}")
+      .form-group(ng-class="{'has-error':err_email || err_email_req || err403}")
         .row
           .controls.col-md-6.col-md-offset-3
             input#email.form-control(
@@ -20,8 +21,9 @@
             )
             .err-msg(ng-show="err_email_req=loginForm.email.$error.required && !loginForm.email.$pristine") {{ lang.error.required }}
             .err-msg(ng-show="err_email=loginForm.email.$error.email && !loginForm.email.$pristine") {{ lang.error.email }}
+            .err-msg(ng-show="err403") {{ lang.error.403 }}
       // Password
-      .form-group
+      .form-group(ng-class="{'has-error':err403}")
         .row
          .controls.col-md-6.col-md-offset-3
            input#password.form-control(

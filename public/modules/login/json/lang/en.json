@@ -5,6 +5,7 @@
 	"registration":"Registration",
 	"error":{
 		"email":"Email is incorrect",
-		"required":"Field must be completed"
+		"required":"Field must be completed",
+		"403":"Wrong email or password"
 	}
 }

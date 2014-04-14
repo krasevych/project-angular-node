@@ -31,8 +31,10 @@ define(function (require) {
 
 						},function(err){
 								if (err.status=='403') {
-									myAlert.$scope.title=err.data.message;
-									myAlert.$scope.$show();
+//									myAlert.$scope.title=err.data.message;
+
+//									myAlert.$scope.$show();
+									$scope.err403=true;
 									$scope.login.password = '';
 								}
 							});
