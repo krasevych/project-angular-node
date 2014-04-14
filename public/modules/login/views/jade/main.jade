@@ -5,7 +5,6 @@
     form.form-horizontal.col-sm-6.col-sm-offset-3(
       role="form"
       name="loginForm"
-      ng-submit="submit()"
     )
       .error-box
       // Email
@@ -38,6 +37,8 @@
           .controls.col-md-6.col-md-offset-3
             button#login.btn.btn-warning.form-control(
               type="submit"
+              ng-click="submit(loginForm)"
+
             ) {{ lang.login }}
       .form-group
         .row
