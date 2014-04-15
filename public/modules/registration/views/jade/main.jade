@@ -6,48 +6,49 @@
     name="registrationForm"
     )
       // name
-      .form-group(ng-class="{'has-error':err_email || err_email_req || err403}")
+      .form-group(ng-class="{'has-error':err_email || err_email_req}")
         .row
           .controls.col-md-6.col-md-offset-3
             input#email.form-control(
-            name="name"
-            type="text"
-            placeholder="{{lang.name}}"
-            ng-model="registration.name"
+              name="name"
+              type="text"
+              placeholder="{{lang.name}}"
+              ng-model="registration.name"
             )
       // Email
       .form-group(ng-class="{'has-error':err_email || err_email_req || err403}")
         .row
           .controls.col-md-6.col-md-offset-3
             input#email.form-control(
-            name="email"
-            type="email"
-            placeholder="{{lang.email}}"
-            ng-model="registration.email"
-            ng-keyup="err403=false"
-            required="true"
+              name="email"
+              type="email"
+              placeholder="{{lang.email}}"
+              ng-model="registration.email"
+              ng-keyup="err403=false"
+              required="true"
             )
             .err-msg(ng-show="err_email_req=registrationForm.email.$error.required && !registrationForm.email.$pristine") {{ lang.error.required }}
             .err-msg(ng-show="err_email=registrationForm.email.$error.email && !registrationForm.email.$pristine") {{ lang.error.email }}
-            .err-msg(ng-show="err403") {{ lang.error.403 }}
+            .err-msg(ng-show="err403") {{ registration.email }} {{ lang.error.403 }}
       // Password
-      .form-group(ng-class="{'has-error':err_password_req || err403}")
+      .form-group(ng-class="{'has-error':err_password_req || err_password_len}")
         .row
           .controls.col-md-6.col-md-offset-3
             input#password.form-control(
-            type="password"
-            name="password"
-            placeholder="{{lang.password}}"
-            ng-model="registration.password"
-            ng-keyup="err403=false"
-            required="true"
+              type="password"
+              name="password"
+              placeholder="{{lang.password}}"
+              ng-model="registration.password"
+              ng-keyup="err403=false; err_password_len=registration.password.length<5"
+              required="true"
             )
             .err-msg(ng-show="err_password_req=registrationForm.password.$error.required && !registrationForm.password.$pristine") {{ lang.error.required }}
+            .err-msg(ng-show="err_password_len") {{ lang.error.length }}
       // registration button
       .form-group
         .row
           .controls.col-md-6.col-md-offset-3
             button#registration.btn.btn-warning.form-control(
-            type="submit"
-            ng-click="submit(registrationForm)"
+              type="submit"
+              ng-click="submit(registrationForm)"
             ) {{ lang.registration }}

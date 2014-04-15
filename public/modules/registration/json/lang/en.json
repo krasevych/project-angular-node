@@ -6,6 +6,7 @@
 	"error":{
 		"email":"Email is incorrect",
 		"required":"Field must be completed",
-		"403":"Wrong email or password"
+		"403":"is registered",
+		"length":"Password is very short"
 	}
 }

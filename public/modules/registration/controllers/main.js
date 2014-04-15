@@ -6,16 +6,28 @@ define(function (require) {
 			[
 				'$scope',
 				'registration.$resource',
+				'$modal',
 
-				function ($scope, $res) {
+				function ($scope, $res,$modal) {
 //					values
 //					  var
+					var myModal = $modal({
+						title: 'My Title',
+						content: 'My Content',
+						show: false,
+						animation:"am-fade-and-scale"
+					});
 
 //					  $scope
 					$scope.lang=$res.lang();
 
 //					  $rootScope
-
+					myModal.$promise.then(function() {
+						myModal.show();
+					});
+					$scope.$on('modal.hide.after',function(){
+						alert('dsfdfs');
+					});
 //					buttons
 					$scope.submit = function (form) {
 						if (form.$valid) {
@@ -23,6 +35,7 @@ define(function (require) {
 								function (res) {
 						/*				$rootScope.$broadcast('registration',res);
 										$location.path('/');*/
+
 								}, function (err) {
 									if (err.status == '403') {
 										$scope.err403 = true;
