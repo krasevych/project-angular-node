@@ -6,7 +6,7 @@
     name="registrationForm"
     )
       // name
-      .form-group(ng-class="{'has-error':err_email || err_email_req}")
+      .form-group
         .row
           .controls.col-md-6.col-md-offset-3
             input#email.form-control(
@@ -51,4 +51,10 @@
             button#registration.btn.btn-warning.form-control(
               type="submit"
               ng-click="submit(registrationForm)"
+              data-animation="am-fade-and-scale"
+              data-placement="center"
+              bs-modal="modal111"
+              title="sdfdsfs"
+              data-content="dfdsfss"
+              data-html="true"
             ) {{ lang.registration }}

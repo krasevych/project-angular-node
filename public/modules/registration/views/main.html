@@ -4,7 +4,7 @@
     <!-- form for registration-->
     <form role="form" name="registrationForm" class="form-horizontal col-sm-6 col-sm-offset-3">
       <!-- name-->
-      <div ng-class="{'has-error':err_email || err_email_req}" class="form-group">
+      <div class="form-group">
         <div class="row">
           <div class="controls col-md-6 col-md-offset-3">
             <input id="email" name="name" type="text" placeholder="{{lang.name}}" ng-model="registration.name" class="form-control"/>
@@ -36,7 +36,7 @@
       <div class="form-group">
         <div class="row">
           <div class="controls col-md-6 col-md-offset-3">
-            <button id="registration" type="submit" ng-click="submit(registrationForm)" class="btn btn-warning form-control">{{ lang.registration }}</button>
+            <button id="registration" type="submit" ng-click="submit(registrationForm)" data-animation="am-fade-and-scale" data-placement="center" bs-modal="modal111" title="sdfdsfs" data-content="dfdsfss" data-html="true" class="btn btn-warning form-control">{{ lang.registration }}</button>
           </div>
         </div>
       </div>

@@ -7,8 +7,9 @@ define(function (require) {
 				'$scope',
 				'registration.$resource',
 				'$modal',
+				'$q',
 
-				function ($scope, $res,$modal) {
+				function ($scope, $res,$modal,$q) {
 //					values
 //					  var
 					var myModal = $modal({
@@ -22,12 +23,7 @@ define(function (require) {
 					$scope.lang=$res.lang();
 
 //					  $rootScope
-					myModal.$promise.then(function() {
-						myModal.show();
-					});
-					$scope.$on('modal.hide.after',function(){
-						alert('dsfdfs');
-					});
+
 //					buttons
 					$scope.submit = function (form) {
 						if (form.$valid) {
@@ -35,6 +31,10 @@ define(function (require) {
 								function (res) {
 						/*				$rootScope.$broadcast('registration',res);
 										$location.path('/');*/
+									myModal.show();
+									myModal.$scope.$on('modal.hide',function(){
+										console.log('asdasda');
+									});
 
 								}, function (err) {
 									if (err.status == '403') {

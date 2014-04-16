@@ -6,7 +6,7 @@ require.config({
 		'ngAnimate':'../bower_components/angular-animate/angular-animate.min',
 		'ngRoute':'../bower_components/angular-route/angular-route.min',
 		'angular_strap': '../bower_components/angular-strap/dist/angular-strap.min',
-		'angular_strap_tpl': '../bower_components/angular-strap/dist/angular-strap.tpl.min',
+		'angular_strap_tpl': '../bower_components/angular-strap/dist/angular-strap.tpl.min'
 	},
 	shim: {
 		'angular_strap_tpl': {
