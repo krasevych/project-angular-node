@@ -9,6 +9,7 @@
     "angular-strap": "~2.0.1",
     "bootstrap": "",
     "jquery": "",
-    "requirejs": ""
+    "requirejs": "",
+    "angular-bootstrap": "~0.10.0"
   }
 }

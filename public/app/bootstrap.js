@@ -5,17 +5,12 @@ require.config({
 		'ngResource':'../bower_components/angular-resource/angular-resource.min',
 		'ngAnimate':'../bower_components/angular-animate/angular-animate.min',
 		'ngRoute':'../bower_components/angular-route/angular-route.min',
-		'angular_strap': '../bower_components/angular-strap/dist/angular-strap.min',
-		'angular_strap_tpl': '../bower_components/angular-strap/dist/angular-strap.tpl.min'
+		'ui_bootstrap_tpls':'../bower_components/angular-bootstrap/ui-bootstrap-tpls.min',
 	},
 	shim: {
-		'angular_strap_tpl': {
-			deps: ['angular_strap'],
-			exports: 'angular_strap_tpl'
-		},
-		'angular_strap': {
+		'ui_bootstrap_tpls': {
 			deps: ['angular'],
-			exports: 'angular_strap'
+			exports: 'ui_bootstrap_tpls'
 		},
 		'ngRoute': {
 			deps:['angular'],
@@ -23,19 +18,18 @@ require.config({
 		},
 		'angular': {
 			exports: 'angular'
-		}
+		},
+		 'ngAnimate': {
+		 deps:['angular'],
+		 exports: 'ngAnimate'
+		 }
 
-	},
-	deps: [
-		'angular',
-		'ngRoute',
-		'angular_strap',
-		'angular_strap_tpl'
-	]
+	}
 });
 require([
+		'angular',
 		'./app'
-	],function (app) {
+	],function (angular) {
 		angular.bootstrap(document, ['app']);
 	}
 );

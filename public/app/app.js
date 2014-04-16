@@ -1,7 +1,10 @@
 define(function (require) {
 //	require modules
+	var angular=require('angular');
 	require('ngRoute');
 	require('ngAnimate');
+	require('ui_bootstrap_tpls');
+//	my module
 	require('../modules/header/index.js');
 	require('../modules/home/index.js');
 	require('../modules/login/index.js');
@@ -11,9 +14,10 @@ define(function (require) {
 // created module of app
 	 var app=angular.module('app',
 		 [
-			 'mgcrea.ngStrap',
+			 'ui.bootstrap',
 			 'ngAnimate',
 			 'ngRoute',
+//			 my module
 			 'header',
 			 'home',
 			 'login',
