@@ -1,14 +1,9 @@
 define(function (require) {
-	return function ($scope, $modalInstance, items,lang) {
-console.log($scope,$modalInstance);
-			$scope.items = items;
+	return function ($scope, $modalInstance,lang) {
 		$scope.lang=lang;
-			$scope.selected = {
-				item: $scope.items[0]
-			};
-
+		console.log(lang);
 			$scope.ok = function () {
-				$modalInstance.close($scope.selected.item);
+				$modalInstance.close();
 			};
 
 			$scope.cancel = function () {

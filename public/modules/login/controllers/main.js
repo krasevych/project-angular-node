@@ -6,10 +6,9 @@ define(function (require) {
 			[
 				'$scope',
 				'login.$resource',
-				'$alert',
 				'$location',
 				'$rootScope',
-				function ($scope, $res,$alert,$location,$rootScope) {
+				function ($scope, $res,$location,$rootScope) {
 //					values
 //					  var
 

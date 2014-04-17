@@ -1,12 +1,6 @@
 .modal-header
-  h3 I'm a modal!
-.modal-body
-  ul
-    li(ng-repeat="item in items")
-      a(ng-click="selected.item = item") {{ item }}
-
-  |Selected:
-  b {{ selected.item }}
+  h3 {{ lang.header }}
+.modal-body {{ lang.body }}
 .modal-footer
-  button.btn.btn-primary(ng-click="ok()") OK
-  button.btn.btn-warning(ng-click="cancel()") Cancel {{ lang.registration }}
+  button.btn.btn-primary(ng-click="ok()") {{ lang.enter }}
+  button.btn.btn-warning(ng-click="cancel()") {{ lang.cancel }}

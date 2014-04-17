@@ -8,5 +8,11 @@
 		"required":"Field must be completed",
 		"403":"is registered",
 		"length":"Password is very short"
+	},
+	"modal":{
+		"header":"Header",
+		"body":"body",
+		"enter":"Enter",
+		"cancel":"Cancel"
 	}
 }
