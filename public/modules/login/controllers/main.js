@@ -21,6 +21,7 @@ define(function (require) {
 
 //					buttons
 					$scope.submit = function (form) {
+						console.log(form);
 						if (form.$valid) {
 							$res.login('data=' + encodeURIComponent(angular.toJson($scope.login)),
 								function (res) {

@@ -1,11 +1,11 @@
 #header.header(ng-controller="header.ctrl.main"  ng-cloak )
   .container
     {{ lang.mod_name }}
-    a.btn.btn-success.pull-right(
+    a.btn.btn-primary.pull-right(
      ng-href="#/login"
      ng-show="btn_login"
     ) Login
-    a.btn.btn-success.pull-right(
+    a.btn.btn-warning.pull-right(
      ng-click="logout()"
      ng-show="!btn_login"
     ) Logout

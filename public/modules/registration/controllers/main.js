@@ -26,7 +26,7 @@ define(function (require) {
 									$modal.open({
 										templateUrl: '/modules/registration/views/modal.html',
 										controller: modalCrtl,
-										windowClass:'req-mod',
+										windowClass:'req-modal',
 										resolve: {
 											lang: function () {
 												return $scope.lang.$promise.then(function(el){

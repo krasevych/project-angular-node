@@ -10,8 +10,8 @@
 		"length":"Password is very short"
 	},
 	"modal":{
-		"header":"Header",
-		"body":"body",
+		"header":"Congratulations!",
+		"body":"You have successfully registered",
 		"enter":"Enter",
 		"cancel":"Cancel"
 	}

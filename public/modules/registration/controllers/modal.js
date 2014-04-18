@@ -1,7 +1,9 @@
 define(function (require) {
 	return function ($scope, $modalInstance,lang) {
+//		values
 		$scope.lang=lang;
-		console.log(lang);
+
+//		buttons
 			$scope.ok = function () {
 				$modalInstance.close();
 			};
