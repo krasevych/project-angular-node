@@ -2,7 +2,7 @@
 <div id="login" ng-controller="login.ctrl.main" ng-cloak="ng-cloak" class="login">
   <div class="container">
     <!-- form for login-->
-    <form role="form" name="loginForm" class="form-horizontal col-sm-6 col-sm-offset-3">
+    <form role="form" name="loginForm" ng-submit="submit(loginForm)" form-autofill-fix="form-autofill-fix" novalidate="novalidate" class="form-horizontal col-sm-6 col-sm-offset-3">
       <div class="error-box"></div>
       <!-- Email-->
       <div ng-class="{'has-error':err_email || err_email_req || err403}" class="form-group">
@@ -28,7 +28,7 @@
       <div class="form-group">
         <div class="row">
           <div class="controls col-md-6 col-md-offset-3">
-            <button id="login" type="submit" ng-click="submit(loginForm)" class="btn btn-warning form-control">{{ lang.login }}</button>
+            <button id="login" type="submit" class="btn btn-warning form-control">{{ lang.login }}</button>
           </div>
         </div>
       </div>

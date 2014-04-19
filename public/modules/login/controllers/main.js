@@ -33,7 +33,7 @@ define(function (require) {
 									}
 								});
 						}else{
-							form.$error.required.forEach(function (el) {
+							angular.forEach(form.$error.required,function (el) {
 								el.$pristine = false;
 							})
 						}
