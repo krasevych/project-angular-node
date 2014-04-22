@@ -1,12 +1,15 @@
 #header.header(ng-controller="header.ctrl.main"  ng-cloak )
   .container
-    {{ lang.mod_name }}
-    a.btn.btn-primary.pull-right(
-     ng-href="#/login"
-     ng-show="btn_login"
-    ) Login
-    a.btn.btn-warning.pull-right(
-     ng-click="logout()"
-     ng-show="!btn_login"
-    ) Logout
-    span.pull-right(ng-show="!btn_login") {{ email }}
+    a.logo.pull-left(href='/#')
+      {{ lang.mod_name }}
+    // buttons
+    .buttons
+      a.btn.btn-warning(
+       ng-href="#/login"
+       ng-show="btn_login"
+      ) Login
+      span.person_name(ng-show="!btn_login") {{ lang.hello }}, {{ email }}
+      a.btn.btn-default(
+       ng-click="logout()"
+       ng-show="!btn_login"
+      ) Logout

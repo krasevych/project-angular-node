@@ -6,6 +6,9 @@ require.config({
 		'ngAnimate':'../bower_components/angular-animate/angular-animate.min',
 		'ngRoute':'../bower_components/angular-route/angular-route.min',
 		'ui_bootstrap_tpls':'../bower_components/angular-bootstrap/ui-bootstrap-tpls.min',
+		
+//		common components
+		'formAutofillFix':'../common/directives/formAutofillFix'
 	},
 	shim: {
 		'ui_bootstrap_tpls': {
@@ -22,6 +25,10 @@ require.config({
 		 'ngAnimate': {
 		 deps:['angular'],
 		 exports: 'ngAnimate'
+		 },
+		 'ngResource': {
+		 deps:['angular'],
+		 exports: 'ngResource'
 		 }
 
 	}

@@ -1,4 +1,7 @@
 
 <div id="header" ng-controller="header.ctrl.main" ng-cloak="ng-cloak" class="header">
-  <div class="container">{{ lang.mod_name }}<a ng-href="#/login" ng-show="btn_login" class="btn btn-primary pull-right">Login</a><a ng-click="logout()" ng-show="!btn_login" class="btn btn-warning pull-right">Logout</a><span ng-show="!btn_login" class="pull-right">{{ email }}</span></div>
+  <div class="container"><a href="/#" class="logo pull-left">{{ lang.mod_name }}</a>
+    <!-- buttons-->
+    <div class="buttons"><a ng-href="#/login" ng-show="btn_login" class="btn btn-warning">Login</a><span ng-show="!btn_login" class="person_name">{{ lang.hello }}, {{ email }}</span><a ng-click="logout()" ng-show="!btn_login" class="btn btn-default">Logout</a></div>
+  </div>
 </div>

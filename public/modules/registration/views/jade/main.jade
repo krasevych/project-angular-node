@@ -4,6 +4,8 @@
     form.form-horizontal.col-sm-6.col-sm-offset-3(
     role="form"
     name="registrationForm"
+    ng-submit="submit(registrationForm,$event)"
+    form-autofill-fix
     )
       // name
       .form-group
@@ -50,5 +52,4 @@
           .controls.col-md-6.col-md-offset-3
             button#registration.btn.btn-warning.form-control(
               type="submit"
-              ng-click="submit(registrationForm,$event)"
             ) {{ lang.registration }}

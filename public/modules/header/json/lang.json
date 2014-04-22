@@ -1,3 +1,4 @@
 {
-	"mod_name":"Header"
+	"mod_name":"Header",
+	"hello":"Hello"
 }
