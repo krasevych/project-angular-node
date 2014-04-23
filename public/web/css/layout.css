@@ -4,12 +4,21 @@ button {
   outline: none!important;
 }
 html,
-body,
-.main {
+body {
   height: 100%;
 }
 .main {
+  min-height: 100%;
   margin-bottom: -50px;
+  background: #fafafa;
+}
+.main:after {
+  content: "";
+  display: block;
+}
+footer,
+.main:after {
+  height: 50px;
 }
 .err-msg {
   padding: 5px 5px 0px;
