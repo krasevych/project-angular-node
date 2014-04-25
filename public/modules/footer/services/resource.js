@@ -8,7 +8,7 @@ define(function(require)
 			function ($resource) {
 
 		var resource= $resource('url/:id',
-			{ id: 'example' }, {
+			{ }, {
 				update: { method: 'PUT' },
 				lang:{
 					method:'GET',
