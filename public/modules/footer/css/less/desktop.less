@@ -10,9 +10,8 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=@top, endColorstr=@bottom, GradientType=0); /* IE6-9 */
 }
 
-
-#footer{
-  &.footer{
+#footer {
+  &.footer {
     height: 50px;
     text-align: left;
 
@@ -21,9 +20,9 @@
     box-shadow: 0px 0px 3px #4D5156;
   }
 
-  .social{
+  .social {
     text-align: left;
-    &>*{
+    & > * {
       display: inline-block;
       position: relative;
       width: 34px;
@@ -34,8 +33,8 @@
       border-radius: 4px;
       cursor: pointer;
     }
-    .fb{
-      .gradient2(#536DA7,#2D5292);
+    .fb {
+      .gradient2(#536DA7, #2D5292);
       box-shadow: 0px 3px 2px -2px #eee inset,0px -2px 1px -2px #eee inset;
 
       &:before {
@@ -49,7 +48,7 @@
         color: #fff;
       }
 
-      &:after{
+      &:after {
         content: '';
         position: absolute;
         bottom: 1px;
@@ -61,8 +60,8 @@
         border-radius: 0px 0px 4px 4px;
       }
     }
-    .google{
-      .gradient2(#DB4A38,#A8291C);
+    .google {
+      .gradient2(#DB4A38, #A8291C);
 
       &:before {
         content: "\e600";
@@ -79,8 +78,8 @@
         direction: rtl;
       }
     }
-    .in{
-      .gradient2(#81BBDB,#1A6398);
+    .in {
+      .gradient2(#81BBDB, #1A6398);
       &:before {
         content: "\f0e1";
         position: absolute;
@@ -93,29 +92,53 @@
       }
     }
   }
-  .link-list{
+  .link-list {
     text-align: center;
-    ul{
+    ul {
       padding: 0px;
       margin-top: 15px;
     }
-    li{
+    li {
       display: inline-block;
       margin-right: 10px;
       padding-right: 10px;
 
-      border-right:1.5px solid #fafafa ;
-      line-height: 14px;
+      border-right: 1.5px solid #fafafa;
+      line-height: 12px;
 
-      &:last-child{
+      &:last-child {
         border: none;
       }
     }
-    a{
+    a {
+      font-size: 12px;
       color: #fafafa;
+      text-decoration: underline;
     }
   }
-  .contact{
+  .contact {
     text-align: right;
+
+    .number {
+      display: inline-block;
+      position: relative;
+      text-align: right;
+      margin-top: 15px;
+      padding-left: 25px;
+
+      color: #00AFFD;
+      font-size: 20px;
+      line-height: 19px;
+
+      &:before {
+        content: "\e601";
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        color: #00AFFD;
+        font: 20px/icomoon;
+      }
+    }
   }
 }

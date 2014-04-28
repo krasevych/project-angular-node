@@ -14,6 +14,7 @@ define(function (require) {
 
 //					  $scope
 					$scope.lang=$res.lang();
+					$scope.number="+380970116114";
 
 //					  $rootScope
 

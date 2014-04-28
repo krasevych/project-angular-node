@@ -119,15 +119,35 @@
   display: inline-block;
   margin-right: 10px;
   padding-right: 10px;
-  border-right: 1.5px solid #fafafa ;
-  line-height: 14px;
+  border-right: 1.5px solid #fafafa;
+  line-height: 12px;
 }
 #footer .link-list li:last-child {
   border: none;
 }
 #footer .link-list a {
+  font-size: 12px;
   color: #fafafa;
+  text-decoration: underline;
 }
 #footer .contact {
   text-align: right;
+}
+#footer .contact .number {
+  display: inline-block;
+  position: relative;
+  text-align: right;
+  margin-top: 15px;
+  padding-left: 25px;
+  color: #00AFFD;
+  font-size: 20px;
+  line-height: 19px;
+}
+#footer .contact .number:before {
+  content: "\e601";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: #00AFFD;
+  font: 20px icomoon;
 }

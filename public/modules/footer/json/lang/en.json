@@ -1,3 +1,6 @@
 {
-	"mod_name":"Footer"
+	"mod_name":"Footer",
+	"home":"Home",
+	"about":"About us",
+	"faq":"FAQ"
 }
