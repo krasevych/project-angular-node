@@ -1,10 +1,10 @@
 var express = require('express');
-var mongoose = require('lib/mongoose');
+//var mongoose = require('lib/mongoose');
 var http = require('http');
 var path = require('path');
 var config = require('config');
-var HttpError = require('error');
-var MongoStore=require('connect-mongo')(express);
+//var HttpError = require('error');
+//var MongoStore=require('connect-mongo')(express);
 //var db = require('createDB');
 
 var app = express();
@@ -17,7 +17,7 @@ app.use(express.logger('dev'));
 app.use(express.json());
 //app.use(express.urlencoded());
 //app.use(express.methodOverride());
-app.use(express.bodyParser());
+/*app.use(express.bodyParser());
 app.use(express.cookieParser());
 app.use(express.session({
 	secret:config.get('session:secret'),
@@ -27,7 +27,7 @@ app.use(express.session({
 }));
 app.use(require('middleware/sendHttpError'));
 app.use(app.router);
-require('./routes')(app);
+require('./routes')(app);*/
 app.use(express.static(path.join(__dirname, 'public')));
 
 //  error
@@ -51,6 +51,6 @@ app.use(function (err, reg, res, next) {
 });
 
 
-express.createServer().listen(process.env.OPENSHIFT_NODEJS_PORT,process.env.OPENSHIFT_NODEJS_IP, function () {
+express.createServer().listen(process.env.OPENSHIFT_NODEJS_PORT || 8080,process.env.OPENSHIFT_NODEJS_IP, function () {
 	console.log('Express server listening on port ' + config.get('port'));
 });
