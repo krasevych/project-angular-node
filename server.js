@@ -2,7 +2,8 @@
 //  OpenShift sample Node application
 var express = require('express');
 var fs      = require('fs');
-
+var http = require('http');
+var app = express();
 
 /**
  *  Define the sample application.
@@ -145,13 +146,8 @@ var SampleApp = function() {
             console.log('%s: Node server started on %s:%d ...',
                         Date(Date.now() ), self.ipaddress, self.port);
         });*/
-	    var http = require('http');
-	    var app = express();
-	    app.use(app.router);
-	    app.get('/',function(req, res) {
-		    res.setHeader('Content-Type', 'text/html');
-		    res.send(self.cache_get('index.html') );
-	    });
+
+
 	    var path = require('path');
 
 	    app.use(express.static(path.join(__dirname, 'public')));
