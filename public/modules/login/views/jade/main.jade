@@ -1,0 +1,52 @@
+#login.login(ng-controller="login.ctrl.main"  ng-cloak )
+  .container
+    // form for login
+    form.form-horizontal.col-sm-6.col-sm-offset-3(
+      role="form"
+      name="loginForm"
+      ng-submit="submit(loginForm)"
+      form-autofill-fix
+      novalidate
+
+    )
+      .error-box
+      // Email
+      .form-group(ng-class="{'has-error':err_email || err_email_req || err403}")
+        .row
+          .controls.col-md-6.col-md-offset-3
+            input#email.form-control(
+              name="email"
+              type="email"
+              placeholder="{{lang.email}}"
+              ng-model="login.email"
+              ng-keyup="err403=false"
+              required="true"
+            )
+            .err-msg(ng-show="err_email_req=loginForm.email.$error.required && !loginForm.email.$pristine") {{ lang.error.required }}
+            .err-msg(ng-show="err_email=loginForm.email.$error.email && !loginForm.email.$pristine") {{ lang.error.email }}
+            .err-msg(ng-show="err403") {{ lang.error.403 }}
+      // Password
+      .form-group(ng-class="{'has-error':err_password_req || err403}")
+        .row
+         .controls.col-md-6.col-md-offset-3
+           input#password.form-control(
+             type="password"
+             name="password"
+             placeholder="{{lang.password}}"
+             ng-model="login.password"
+             ng-keyup="err403=false"
+             required="true"
+           )
+           .err-msg(ng-show="err_password_req=loginForm.password.$error.required && !loginForm.password.$pristine") {{ lang.error.required }}
+
+      // login button
+      .form-group
+        .row
+          .controls.col-md-6.col-md-offset-3
+            button#login.btn.btn-warning.form-control(
+              type="submit"
+            ) {{ lang.login }}
+      .form-group
+        .row
+          .col-md-6.col-md-offset-3
+            a(href="#registration") {{ lang.registration }}

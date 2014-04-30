@@ -1,0 +1,17 @@
+#footer.footer(ng-controller="footer.ctrl.main"  ng-cloak )
+  .container
+    .row
+      .social.col-md-4
+        a.fb(href="#")
+        a.google(href="#")
+        a.in(href="#")
+      .link-list.col-md-4
+        ul
+          li
+            a(href="#") {{ lang.home }}
+          li
+            a(href="#") {{ lang.faq }}
+          li
+            a(href="#") {{ lang.about }}
+      .contact.col-md-4
+        .number {{ number }}

@@ -1,0 +1,42 @@
+
+<div id="login" ng-controller="login.ctrl.main" ng-cloak="ng-cloak" class="login">
+  <div class="container">
+    <!-- form for login-->
+    <form role="form" name="loginForm" ng-submit="submit(loginForm)" form-autofill-fix="form-autofill-fix" novalidate="novalidate" class="form-horizontal col-sm-6 col-sm-offset-3">
+      <div class="error-box"></div>
+      <!-- Email-->
+      <div ng-class="{'has-error':err_email || err_email_req || err403}" class="form-group">
+        <div class="row">
+          <div class="controls col-md-6 col-md-offset-3">
+            <input id="email" name="email" type="email" placeholder="{{lang.email}}" ng-model="login.email" ng-keyup="err403=false" required="true" class="form-control"/>
+            <div ng-show="err_email_req=loginForm.email.$error.required &amp;&amp; !loginForm.email.$pristine" class="err-msg">{{ lang.error.required }}</div>
+            <div ng-show="err_email=loginForm.email.$error.email &amp;&amp; !loginForm.email.$pristine" class="err-msg">{{ lang.error.email }}</div>
+            <div ng-show="err403" class="err-msg">{{ lang.error.403 }}</div>
+          </div>
+        </div>
+      </div>
+      <!-- Password-->
+      <div ng-class="{'has-error':err_password_req || err403}" class="form-group">
+        <div class="row">
+          <div class="controls col-md-6 col-md-offset-3">
+            <input id="password" type="password" name="password" placeholder="{{lang.password}}" ng-model="login.password" ng-keyup="err403=false" required="true" class="form-control"/>
+            <div ng-show="err_password_req=loginForm.password.$error.required &amp;&amp; !loginForm.password.$pristine" class="err-msg">{{ lang.error.required }}</div>
+          </div>
+        </div>
+      </div>
+      <!-- login button-->
+      <div class="form-group">
+        <div class="row">
+          <div class="controls col-md-6 col-md-offset-3">
+            <button id="login" type="submit" class="btn btn-warning form-control">{{ lang.login }}</button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3"><a href="#registration">{{ lang.registration }}</a></div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+.modal-header
+  h3 {{ lang.header }}
+.modal-body {{ lang.name? lang.name+', '+lang.body:lang.body }}
+.modal-footer
+  button.btn.btn-warning(ng-click="ok()") {{ lang.enter }}
+  button.btn.btn-default(ng-click="cancel()") {{ lang.cancel }}

@@ -1,0 +1,45 @@
+
+<div id="registration" ng-controller="registration.ctrl.main" ng-cloak="ng-cloak" class="registration">
+  <div class="container">
+    <!-- form for registration-->
+    <form role="form" name="registrationForm" ng-submit="submit(registrationForm,$event)" form-autofill-fix="form-autofill-fix" novalidate="novalidate" class="form-horizontal col-sm-6 col-sm-offset-3">
+      <!-- name-->
+      <div class="form-group">
+        <div class="row">
+          <div class="controls col-md-6 col-md-offset-3">
+            <input id="email" name="name" type="text" placeholder="{{lang.name}}" ng-model="registration.name" class="form-control"/>
+          </div>
+        </div>
+      </div>
+      <!-- Email-->
+      <div ng-class="{'has-error':err_email || err_email_req || err403}" class="form-group">
+        <div class="row">
+          <div class="controls col-md-6 col-md-offset-3">
+            <input id="email" name="email" type="email" placeholder="{{lang.email}}" ng-model="registration.email" ng-keyup="err403=false" required="true" class="form-control"/>
+            <div ng-show="err_email_req=registrationForm.email.$error.required &amp;&amp; !registrationForm.email.$pristine" class="err-msg">{{ lang.error.required }}</div>
+            <div ng-show="err_email=registrationForm.email.$error.email &amp;&amp; !registrationForm.email.$pristine" class="err-msg">{{ lang.error.email }}</div>
+            <div ng-show="err403" class="err-msg">{{ registration.email }} {{ lang.error.403 }}</div>
+          </div>
+        </div>
+      </div>
+      <!-- Password-->
+      <div ng-class="{'has-error':err_password_req || err_password_len}" class="form-group">
+        <div class="row">
+          <div class="controls col-md-6 col-md-offset-3">
+            <input id="password" type="password" name="password" placeholder="{{lang.password}}" ng-model="registration.password" ng-keyup="err403=false; err_password_len=registration.password.length&lt;5" required="true" class="form-control"/>
+            <div ng-show="err_password_req=registrationForm.password.$error.required &amp;&amp; !registrationForm.password.$pristine" class="err-msg">{{ lang.error.required }}</div>
+            <div ng-show="err_password_len" class="err-msg">{{ lang.error.length }}</div>
+          </div>
+        </div>
+      </div>
+      <!-- registration button-->
+      <div class="form-group">
+        <div class="row">
+          <div class="controls col-md-6 col-md-offset-3">
+            <button id="registration" type="submit" class="btn btn-warning form-control">{{ lang.registration }}</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

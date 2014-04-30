@@ -1,0 +1,18 @@
+{
+	"name":"Name",
+	"email":"Email",
+	"password":"Password",
+	"registration":"Registration",
+	"error":{
+		"email":"Email is incorrect",
+		"required":"Field must be completed",
+		"403":"is registered",
+		"length":"Password is very short"
+	},
+	"modal":{
+		"header":"Congratulations!",
+		"body":"You have successfully registered",
+		"enter":"Enter",
+		"cancel":"Cancel"
+	}
+}
