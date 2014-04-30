@@ -4,7 +4,7 @@ var http = require('http');
 var path = require('path');
 var config = require('./config');
 var HttpError = require('./error');
-//var MongoStore=require('connect-mongo')(express);
+var MongoStore=require('connect-mongo')(express);
 
 var app = express();
 
@@ -23,7 +23,7 @@ app.use(express.cookieParser());
 	cookie:config.get("session:cookie"),
 	store:new MongoStore({mongoose_connection:mongoose.connection})
 }));*/
-//app.use(require('./middleware/sendHttpError'));
+app.use(require('./middleware/sendHttpError'));
 app.use(app.router);
 //require('./routes')(app);
 app.use(express.static(path.join(__dirname, 'public')));
