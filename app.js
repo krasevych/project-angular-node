@@ -1,5 +1,5 @@
 var express = require('express');
-//var mongoose = require('./lib/mongoose');
+var mongoose = require('./lib/mongoose');
 var http = require('http');
 var path = require('path');
 var config = require('./config');
@@ -9,8 +9,7 @@ var MongoStore=require('connect-mongo')(express);
 var app = express();
 
 // all environments
-/*app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');*/
+
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.json());
