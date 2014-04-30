@@ -146,7 +146,7 @@ var SampleApp = function() {
                         Date(Date.now() ), self.ipaddress, self.port);
         });*/
 
-	    self.app.listen(8080,'ex-std-node413.prod.rhcloud.com', function () {
+	    self.app.listen(8080,process.env.OPENSHIFT_NODEJS_IP, function () {
 		    console.log('Express server listening on port ');
 	    });
 	/*    for (var r in self.routes) {
