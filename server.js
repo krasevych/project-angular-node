@@ -145,10 +145,15 @@ var SampleApp = function() {
             console.log('%s: Node server started on %s:%d ...',
                         Date(Date.now() ), self.ipaddress, self.port);
         });*/
+	    var http = require('http');
+	    var app = express();
 
+	    http.createServer(app).listen(8080,process.env.OPENSHIFT_NODEJS_IP, function () {
+		    console.log('Express server listening on port ');
+	    });/*
 	    express.createServer().listen(8080,process.env.OPENSHIFT_NODEJS_IP, function () {
 		    console.log('Express server listening on port ');
-	    });
+	    });*/
 	/*    for (var r in self.routes) {
 		    express.createServer().get(r, self.routes[r]);
 	    }
