@@ -145,8 +145,9 @@ var SampleApp = function() {
             console.log('%s: Node server started on %s:%d ...',
                         Date(Date.now() ), self.ipaddress, self.port);
         });*/
+	    var http = require('http');
 
-	    self.app.listen(8080,'ex-std-node413.prod.rhcloud.com', function () {
+	    express.createServer().listen(8080,'ex-std-node413.prod.rhcloud.com', function () {
 		    console.log('Express server listening on port ');
 	    });
 	/*    for (var r in self.routes) {
