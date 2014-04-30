@@ -3,7 +3,7 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var config = require('./config');
-//var HttpError = require('./error');
+var HttpError = require('./error');
 //var MongoStore=require('connect-mongo')(express);
 
 var app = express();
@@ -26,11 +26,11 @@ app.use(express.cookieParser());
 }));*/
 //app.use(require('./middleware/sendHttpError'));
 app.use(app.router);
-//require('./routes')(app);
+require('./routes')(app);
 app.use(express.static(path.join(__dirname, 'public')));
 
 //  error
-/*app.use(function (err, reg, res, next) {
+app.use(function (err, reg, res, next) {
 	if (typeof err == 'number') {
 		err = new HttpError(err);
 	}
@@ -47,7 +47,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 		}
 	}
-});*/
+});
 
 
 http.createServer(app).listen(8080,process.env.OPENSHIFT_NODEJS_IP, function () {
