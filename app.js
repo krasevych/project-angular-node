@@ -17,12 +17,12 @@ app.use(express.json());
 //app.use(express.methodOverride());
 app.use(express.bodyParser());
 app.use(express.cookieParser());
-/*app.use(express.session({
+app.use(express.session({
 	secret:config.get('session:secret'),
 	key:config.get('session:key'),
 	cookie:config.get("session:cookie"),
 	store:new MongoStore({mongoose_connection:mongoose.connection})
-}));*/
+}));
 app.use(require('./middleware/sendHttpError'));
 app.use(app.router);
 //require('./routes')(app);
