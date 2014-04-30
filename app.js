@@ -51,6 +51,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 });*/
 
 
-http.createServer(app).listen(8080,'ex-std-node413.prod.rhcloud.com', function () {
+http.createServer(app).listen(8080,process.env.OPENSHIFT_NODEJS_IP, function () {
 	console.log('Express server listening on port ');
 });
