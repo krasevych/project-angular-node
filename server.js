@@ -21,7 +21,7 @@ var SampleApp = function() {
     /**
      *  Set up server IP address and port # using env variables/defaults.
      */
-    self.setupVariables = function() {
+/*    self.setupVariables = function() {
         //  Set the environment variables we need.
         self.ipaddress = process.env.OPENSHIFT_NODEJS_IP;
         self.port      = process.env.OPENSHIFT_NODEJS_PORT || 8080;
@@ -32,13 +32,13 @@ var SampleApp = function() {
             console.warn('No OPENSHIFT_NODEJS_IP var, using 127.0.0.1');
             self.ipaddress = "127.0.0.1";
         };
-    };
+    };*/
 
 
     /**
      *  Populate the cache.
      */
-    self.populateCache = function() {
+/*    self.populateCache = function() {
         if (typeof self.zcache === "undefined") {
             self.zcache = { 'index.html': '' };
         }
@@ -46,7 +46,7 @@ var SampleApp = function() {
         //  Local cache for static content.
 
         self.zcache['index.html'] = fs.readFileSync('./public/index.html');
-    };
+    };*/
 
 
     /**
@@ -128,8 +128,8 @@ var SampleApp = function() {
      *  Initializes the sample application.
      */
     self.initialize = function() {
-        self.setupVariables();
-        self.populateCache();
+//        self.setupVariables();
+//        self.populateCache();
         self.setupTerminationHandlers();
 
         // Create the express server and routes.
