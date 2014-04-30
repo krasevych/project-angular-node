@@ -146,8 +146,13 @@ var SampleApp = function() {
                         Date(Date.now() ), self.ipaddress, self.port);
         });*/
 
-	    express.createServer().listen(process.env.OPENSHIFT_NODEJS_PORT || 8080,process.env.OPENSHIFT_NODEJS_IP, function () {
+	  /*  express.createServer().listen(process.env.OPENSHIFT_NODEJS_PORT || 8080,process.env.OPENSHIFT_NODEJS_IP, function () {
 		    console.log('Express server listening on port ' + config.get('port'));
+	    });*/
+
+	    express.createServer().listen(self.port, self.ipaddress, function() {
+		    console.log('%s: Node server started on %s:%d ...',
+			    Date(Date.now()), self.ipaddress, self.port);
 	    });
     };
 
