@@ -4,7 +4,7 @@ var http = require('http');
 var path = require('path');
 var config = require('./config');
 var HttpError = require('./error');
-var MongoStore=require('connect-mongo')(express);
+//var MongoStore=require('connect-mongo')(express);
 
 var app = express();
 
