@@ -133,7 +133,7 @@ var SampleApp = function() {
         self.setupTerminationHandlers();
 
         // Create the express server and routes.
-        self.initializeServer();
+//        self.initializeServer();
     };
 
 
