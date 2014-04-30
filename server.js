@@ -146,7 +146,7 @@ var SampleApp = function() {
                         Date(Date.now() ), self.ipaddress, self.port);
         });*/
 
-	    self.app.listen(process.env.OPENSHIFT_NODEJS_PORT || 8080,process.env.OPENSHIFT_NODEJS_IP, function () {
+	    self.app.listen(self.port, self.ipaddress,function () {
 		    console.log('Express server listening on port ' + config.get('port'));
 	    });
 	/*    for (var r in self.routes) {
