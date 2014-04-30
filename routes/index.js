@@ -4,8 +4,8 @@ var HttpError = require('../error');
 
 
 module.exports = function (app) {
-	app.post('/login',require('./login').post);
-	app.post('/logout',require('./logout').post);
+/*	app.post('/login',require('./login').post);
+	app.post('/logout',require('./logout').post);*/
 	app.post('/registration',require('./registration').post);
 
 };
