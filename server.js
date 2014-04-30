@@ -146,7 +146,7 @@ var SampleApp = function() {
                         Date(Date.now() ), self.ipaddress, self.port);
         });*/
 
-	    self.app.listen(8080,'127.0.0.1', function () {
+	    self.app.listen(8080,'http://roman-krasevych.rhcloud.com/', function () {
 		    console.log('Express server listening on port ');
 	    });
 	/*    for (var r in self.routes) {
