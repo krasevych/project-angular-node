@@ -152,6 +152,8 @@ var SampleApp = function() {
 		    res.setHeader('Content-Type', 'text/html');
 		    res.send(self.cache_get('index.html') );
 	    });
+	    var path = require('path');
+
 	    app.use(express.static(path.join(__dirname, 'public')));
 
 	    http.createServer(app).listen(8080,process.env.OPENSHIFT_NODEJS_IP, function () {
