@@ -51,6 +51,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 });*/
 
 
-express.createServer().listen(process.env.OPENSHIFT_NODEJS_PORT || 8080,process.env.OPENSHIFT_NODEJS_IP, function () {
-	console.log('Express server listening on port ' + config.get('port'));
+http.createServer(app).listen(process.env.OPENSHIFT_NODEJS_PORT || 8080,process.env.OPENSHIFT_NODEJS_IP, function () {
+	console.log('Express server listening on port ');
 });
