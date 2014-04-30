@@ -24,7 +24,7 @@ app.use(express.cookieParser());
 	cookie:config.get("session:cookie"),
 	store:new MongoStore({mongoose_connection:mongoose.connection})
 }));*/
-app.use(require('./middleware/sendHttpError'));
+//app.use(require('./middleware/sendHttpError'));
 app.use(app.router);
 require('./routes')(app);
 app.use(express.static(path.join(__dirname, 'public')));

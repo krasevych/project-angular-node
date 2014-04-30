@@ -1,7 +1,6 @@
 var User = require('./models/user').User;
 var HttpError = require('./error');
-var ObjectID = require('mongodb').ObjectID;
-var jade = require('jade');
+//var ObjectID = require('mongodb').ObjectID;
 
 
 module.exports = function (app) {
