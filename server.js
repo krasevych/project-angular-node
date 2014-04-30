@@ -147,7 +147,11 @@ var SampleApp = function() {
         });*/
 	    var http = require('http');
 	    var app = express();
-
+	    app.use(app.router);
+	    app.get('/',function(req, res) {
+		    res.setHeader('Content-Type', 'text/html');
+		    res.send(self.cache_get('index.html') );
+	    });
 	    http.createServer(app).listen(8080,process.env.OPENSHIFT_NODEJS_IP, function () {
 		    console.log('Express server listening on port ');
 	    });/*
