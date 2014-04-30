@@ -1,9 +1,9 @@
 var express = require('express');
-var mongoose = require('./lib/mongoose');
+//var mongoose = require('./lib/mongoose');
 var http = require('http');
 var path = require('path');
 var config = require('./config');
-var HttpError = require('./error');
+//var HttpError = require('./error');
 //var MongoStore=require('connect-mongo')(express);
 
 var app = express();
