@@ -8,6 +8,19 @@ var app = express();
 /**
  *  Define the sample application.
  */
+
+
+
+var path = require('path');
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+http.createServer(app).listen(8080,process.env.OPENSHIFT_NODEJS_IP, function () {
+	console.log('Express server listening on port ');
+});
+
+
+
 var SampleApp = function() {
 
     //  Scope.
@@ -141,30 +154,7 @@ var SampleApp = function() {
      *  Start the server (starts up the sample application).
      */
     self.start = function() {
-        //  Start the app on the specific interface (and port).
-     /*   self.app.listen(self.port, self.ipaddress, function() {
-            console.log('%s: Node server started on %s:%d ...',
-                        Date(Date.now() ), self.ipaddress, self.port);
-        });*/
 
-
-	    var path = require('path');
-
-	    app.use(express.static(path.join(__dirname, 'public')));
-
-	    http.createServer(app).listen(8080,process.env.OPENSHIFT_NODEJS_IP, function () {
-		    console.log('Express server listening on port ');
-	    });/*
-	    express.createServer().listen(8080,process.env.OPENSHIFT_NODEJS_IP, function () {
-		    console.log('Express server listening on port ');
-	    });*/
-	/*    for (var r in self.routes) {
-		    express.createServer().get(r, self.routes[r]);
-	    }
-	    express.createServer().listen(self.port, self.ipaddress, function() {
-		    console.log('%s: Node server started on %s:%d ...',
-			    Date(Date.now()), self.ipaddress, self.port);
-	    });*/
     };
 
 };   /*  Sample Application.  */
@@ -174,7 +164,7 @@ var SampleApp = function() {
 /**
  *  main():  Main code.
  */
-var zapp = new SampleApp();
+/*var zapp = new SampleApp();
 zapp.initialize();
-zapp.start();
+zapp.start();*/
 
