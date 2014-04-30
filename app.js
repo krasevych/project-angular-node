@@ -25,7 +25,7 @@ app.use(express.cookieParser());
 }));*/
 //app.use(require('./middleware/sendHttpError'));
 app.use(app.router);
-require('./routes')(app);
+//require('./routes')(app);
 app.use(express.static(path.join(__dirname, 'public')));
 
 //  error
