@@ -1,7 +1,7 @@
 {
 	"port":3000,
 	"mongoose":{
-		"uri":"mongodb://admin:QLypwW4kEpEx@oceanic.mongohq.com:10036/roman",
+		"uri":"mongodb://admin:QLypwW4kEpEx@127.4.109.2:27017",
 
 		"options":{
 			"server":{
