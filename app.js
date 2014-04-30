@@ -31,7 +31,7 @@ require('./routes')(app);*/
 app.use(express.static(path.join(__dirname, 'public')));
 
 //  error
-/*app.use(function (err, reg, res, next) {
+app.use(function (err, reg, res, next) {
 	if (typeof err == 'number') {
 		err = new HttpError(err);
 	}
@@ -48,7 +48,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 		}
 	}
-});*/
+});
 
 
 http.createServer(app).listen(8080,process.env.OPENSHIFT_NODEJS_IP, function () {
