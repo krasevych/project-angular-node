@@ -1,7 +1,7 @@
 {
 	"port":8080,
 	"mongoose":{
-		"uri":"mongodb://admin:QLypwW4kEpEx@127.4.109.2:2701711111",
+		"uri":"mongodb://admin:QLypwW4kEpEx@127.4.109.2:27017",
 
 		"options":{
 			"server":{
