@@ -1,10 +1,10 @@
 var express = require('express');
-var mongoose = require('lib/mongoose');
+var mongoose = require('./lib/mongoose');
 var http = require('http');
 var path = require('path');
 var config = require('./config');
 var HttpError = require('./error');
-var MongoStore=require('connect-mongo')(express);
+//var MongoStore=require('connect-mongo')(express);
 
 var app = express();
 
@@ -18,13 +18,13 @@ app.use(express.json());
 //app.use(express.methodOverride());
 app.use(express.bodyParser());
 app.use(express.cookieParser());
-app.use(express.session({
+/*app.use(express.session({
 	secret:config.get('session:secret'),
 	key:config.get('session:key'),
 	cookie:config.get("session:cookie"),
 	store:new MongoStore({mongoose_connection:mongoose.connection})
-}));
-app.use(require('middleware/sendHttpError'));
+}));*/
+app.use(require('./middleware/sendHttpError'));
 app.use(app.router);
 require('./routes')(app);
 app.use(express.static(path.join(__dirname, 'public')));
