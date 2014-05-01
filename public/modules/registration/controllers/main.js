@@ -14,6 +14,7 @@ define(function (require) {
 //					run code before loaded
 					if (sessionStorage.login) {
 						$location.path('/');
+
 					}
 //					values
 //					  var
