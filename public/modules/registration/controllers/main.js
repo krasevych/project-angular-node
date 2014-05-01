@@ -10,7 +10,11 @@ define(function (require) {
 				'$modal',
 				'$rootScope',
 				'$location',
-				function ($scope, $res, $modal, $rootScope,$location) {
+				function ($scope, $res, $modal, $rootScope, $location) {
+//					run code before loaded
+					if (sessionStorage.login) {
+						$location.path('/');
+					}
 //					values
 //					  var
 
@@ -26,17 +30,17 @@ define(function (require) {
 									$modal.open({
 										templateUrl: '/modules/registration/views/modal.html',
 										controller: modalCrtl,
-										windowClass:'req-modal',
+										windowClass: 'req-modal',
 										resolve: {
 											lang: function () {
-												return $scope.lang.$promise.then(function(el){
-													return angular.extend({},el.modal,res);
+												return $scope.lang.$promise.then(function (el) {
+													return angular.extend({}, el.modal, res);
 												});
 											}
 										}
 									}).result.then(function () {
-										$rootScope.$broadcast('login',res);
-											 $location.path('/');
+											$rootScope.$broadcast('login', res);
+											$location.path('/');
 										}, function () {
 											$location.path('/');
 										});

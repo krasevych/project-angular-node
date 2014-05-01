@@ -10,8 +10,6 @@ var MongoStore=require('connect-mongo')(express);
 var app = express();
 
 // all environments
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.json());
@@ -26,6 +24,8 @@ app.use(express.session({
 	store:new MongoStore({mongoose_connection:mongoose.connection})
 }));
 app.use(require('middleware/sendHttpError'));
+app.use(require('middleware/loadUser'));
+
 app.use(app.router);
 require('./routes')(app);
 app.use(express.static(path.join(__dirname, 'public')));

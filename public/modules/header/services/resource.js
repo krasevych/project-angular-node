@@ -23,7 +23,15 @@ define(function(require)
 						'Content-Type': 'application/x-www-form-urlencoded',
 						'x-requested-with':'XMLHttpRequest'
 					}
+				},
+				login:{
+					method:'PUT',
+					url:'/login',
+					headers: {
+						'x-requested-with':'XMLHttpRequest'
+					}
 				}
+
 			}
 		);
 

@@ -5,16 +5,17 @@ define(function (require) {
 		module.controller('header.ctrl.main',
 			[
 				'$scope',
+				'$rootScope',
 				'header.$resource',
 
-				function ($scope, $res) {
+				function ($scope,$rootScope, $res) {
 //					values
 //					  var
 
 
 //					  $scope
 					$scope.lang=$res.lang();
-					$scope.btn_login=true;
+//					$scope.btn_login=true;
 
 //					  $rootScope
 
@@ -22,15 +23,25 @@ define(function (require) {
 					$scope.logout=function(){
 						$scope.btn_login=true;
 						$res.logout();
+						delete sessionStorage.login;
 					};
 //					watches
 
 //					events
 					$scope.$on('login',function(e,res){
 						$scope.btn_login=false;
-						console.log(res);
 					  $scope.email = res.name? res.name:res.email;
 					});
+
+//					run code after loaded
+					if (sessionStorage.login) {
+						$res.login(function(res){
+							$rootScope.$broadcast('login',res);
+						});
+					}else{
+						$scope.btn_login=true;
+					}
+
 
 				}
 			]);
