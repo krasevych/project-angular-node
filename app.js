@@ -5,11 +5,11 @@ var path = require('path');
 var config = require('config');
 var HttpError = require('error');
 var MongoStore=require('connect-mongo')(express);
+//var db = require('createDB');
 
 var app = express();
 
 // all environments
-
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.json());
@@ -23,7 +23,9 @@ app.use(express.session({
 	cookie:config.get("session:cookie"),
 	store:new MongoStore({mongoose_connection:mongoose.connection})
 }));
-app.use(require('./middleware/sendHttpError'));
+app.use(require('middleware/sendHttpError'));
+app.use(require('middleware/loadUser'));
+
 app.use(app.router);
 require('./routes')(app);
 app.use(express.static(path.join(__dirname, 'public')));
@@ -47,8 +49,12 @@ app.use(function (err, reg, res, next) {
 		}
 	}
 });
-
-
 http.createServer(app).listen(8080,process.env.OPENSHIFT_NODEJS_IP, function () {
 	console.log('Express server listening on port ');
 });
+/*
+
+http.createServer(app).listen(config.get('port'), function () {
+	console.log('Express server listening on port ' + config.get('port'));
+});
+*/

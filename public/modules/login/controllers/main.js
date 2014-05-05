@@ -8,13 +8,17 @@ define(function (require) {
 				'login.$resource',
 				'$location',
 				'$rootScope',
-				function ($scope, $res,$location,$rootScope) {
+				function ($scope, $res, $location, $rootScope) {
+//					run code before loaded
+					if (sessionStorage.login) {
+						$location.path('/');
+					}
 //					values
 //					  var
 
 
 //					  $scope
-					$scope.lang=$res.lang();
+					$scope.lang = $res.lang();
 
 
 //					  $rootScope
@@ -25,15 +29,16 @@ define(function (require) {
 						if (form.$valid) {
 							$res.login('data=' + encodeURIComponent(angular.toJson($scope.login)),
 								function (res) {
-										$rootScope.$broadcast('login',res);
-										$location.path('/');
+									$rootScope.$broadcast('login', res);
+									$location.path('/');
+									sessionStorage.login = true;
 								}, function (err) {
 									if (err.status == '403') {
 										$scope.err403 = true;
 									}
 								});
-						}else{
-							angular.forEach(form.$error.required,function (el) {
+						} else {
+							angular.forEach(form.$error.required, function (el) {
 								el.$pristine = false;
 							})
 						}

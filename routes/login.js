@@ -1,27 +1,32 @@
-var User = require('../models/user').User;
-var AuthError = require('../models/user').AuthError;
-var HttpError = require('../error');
+var User = require('models/user').User;
+var AuthError = require('models/user').AuthError;
+var HttpError = require('error');
 
 exports.post = function (req, res, next) {
-
-	req.body=JSON.parse(req.body.data);
+	req.body = JSON.parse(req.body.data);
 	var email = req.body.email;
 	var password = req.body.password;
 
 	User.login(email, password, function (err, user) {
-		if (err){
-			if(err instanceof AuthError){
-				return next(new HttpError(403,err.message));
-			}else{
-			return next(err);
+		if (err) {
+			if (err instanceof AuthError) {
+				return next(new HttpError(403, err.message));
+			} else {
+				return next(err);
 			}
 		}
 		req.session.user = user._id;
 
 		if (user.find)
-			res.send({name:process.env.MY_VAR,email: user.email});
+			res.send({name: user.name, email: user.email});
 		else
 			res.send({status: 'create'});
 	});
+};
 
+exports.put = function (req, res, next) {
+	if (req.user)
+		res.send({name: req.user.name, email: req.user.email});
+	else
+		res.sendHttpError(new HttpError(404));
 };

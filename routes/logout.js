@@ -1,5 +1,5 @@
-var User = require('../models/user').User;
-var HttpError = require('../error');
+var User = require('models/user').User;
+var HttpError = require('error');
 
 exports.post = function (req, res, next) {
 
