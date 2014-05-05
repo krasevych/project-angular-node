@@ -49,12 +49,10 @@ app.use(function (err, reg, res, next) {
 		}
 	}
 });
-http.createServer(app).listen(8080,process.env.OPENSHIFT_NODEJS_IP, function () {
+/*http.createServer(app).listen(8080,process.env.OPENSHIFT_NODEJS_IP, function () {
 	console.log('Express server listening on port ');
-});
-/*
+});*/
 
-http.createServer(app).listen(config.get('port'), function () {
+http.createServer(app).listen(process.env.OPENSHIFT_NODEJS_PORT || 8080,process.env.OPENSHIFT_NODEJS_IP, function () {
 	console.log('Express server listening on port ' + config.get('port'));
 });
-*/

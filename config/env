@@ -1,1 +1,2 @@
 export NODE_PATH="."
+export MONGOOSE_URI="mongodb://admin:QLypwW4kEpEx@127.4.109.2:27017/roman"
