@@ -19,7 +19,7 @@ exports.post = function (req, res, next) {
 		req.session.user = user._id;
 
 		if (user.find)
-			res.send({name:user.name,email: user.email});
+			res.send({name:process.env.MY_VAR,email: user.email});
 		else
 			res.send({status: 'create'});
 	});
