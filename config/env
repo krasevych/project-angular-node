@@ -1,1 +1,1 @@
-export MY_VAR="something"
+export NODE_PATH="."
