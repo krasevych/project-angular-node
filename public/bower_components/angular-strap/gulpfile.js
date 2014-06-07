@@ -133,11 +133,16 @@ gulp.task('scripts:dist', function() {
 var ngtemplate = require('gulp-ngtemplate');
 var uglify = require('gulp-uglify');
 var ngmin = require('gulp-ngmin');
+
+function createModuleName(src) {
+  return 'mgcrea.ngStrap.' + src.split(path.sep)[0];
+}
+
 gulp.task('templates:dist', function() {
   // Build unified package
   gulp.src(paths.templates, {cwd: paths.src})
     .pipe(htmlmin({removeComments: true, collapseWhitespace: true}))
-    .pipe(ngtemplate({module: function(src) { return 'mgcrea.ngStrap.' + src.split('/')[0]; }}))
+    .pipe(ngtemplate({module: createModuleName}))
     .pipe(ngmin())
     .pipe(concat(pkg.name + '.tpl.js', {process: function(src) { return '// Source: ' + path.basename(this.path) + '\n' + (src.trim() + '\n').replace(/(^|\n)[ \t]*('use strict'|"use strict");?\s*/g, '$1'); }}))
     .pipe(concat.header('(function(window, document, undefined) {\n\'use strict\';\n\n'))
@@ -151,7 +156,7 @@ gulp.task('templates:dist', function() {
   // Build individual modules
   gulp.src(paths.templates, {cwd: paths.src})
     .pipe(htmlmin({removeComments: true, collapseWhitespace: true}))
-    .pipe(ngtemplate({module: function(src) { return 'mgcrea.ngStrap.' + src.split('/')[0]; }}))
+    .pipe(ngtemplate({module: createModuleName}))
     .pipe(ngmin())
     .pipe(rename(function(path){ path.dirname = ''; })) // flatten
     .pipe(concat.header(banner))
@@ -165,14 +170,14 @@ gulp.task('templates:test', function() {
   // Build individual modules
   return gulp.src(paths.templates, {cwd: paths.src})
     .pipe(htmlmin({removeComments: true, collapseWhitespace: true}))
-    .pipe(ngtemplate({module: function(src) { return 'mgcrea.ngStrap.' + src.split('/')[0]; }}))
+    .pipe(ngtemplate({module: createModuleName}))
     .pipe(ngmin())
     .pipe(rename(function(path){ path.dirname = ''; })) // flatten
     .pipe(concat.header(banner))
     .pipe(gulp.dest('test/.tmp/templates'));
 });
 gulp.task('templates:docs', function() {
-  gulp.src(paths.views, {cwd: paths.docs, base: paths.docs})
+  gulp.src(['views/sidebar.html', 'views/partials/*.html'], {cwd: paths.docs, base: paths.docs})
     .pipe(htmlmin({removeComments: true, collapseWhitespace: true}))
     .pipe(ngtemplate({module: 'mgcrea.ngStrapDocs'}))
     .pipe(ngmin())
@@ -186,7 +191,7 @@ gulp.task('templates:docs', function() {
     .pipe(gulp.dest('pages/scripts'));
   gulp.src([paths.templates, '{,*/}docs/*.tpl.demo.html'], {cwd: paths.src})
     .pipe(htmlmin({removeComments: true, collapseWhitespace: true}))
-    .pipe(ngtemplate({module: function(src) { return 'mgcrea.ngStrap.' + src.split('/')[0]; }}))
+    .pipe(ngtemplate({module: createModuleName}))
     .pipe(ngmin())
     .pipe(concat(pkg.name + '.tpl.js', {process: function(src) { return '// Source: ' + path.basename(this.path) + '\n' + (src.trim() + '\n').replace(/(^|\n)[ \t]*('use strict'|"use strict");?\s*/g, '$1'); }}))
     .pipe(concat.header('(function(window, document, undefined) {\n\'use strict\';\n\n'))
@@ -216,7 +221,7 @@ gulp.task('styles:pages', function() {
   gulp.src(paths.styles, {cwd: paths.docs})
     .pipe(less())
     .pipe(prefix('last 1 version', '> 1%', 'ie 8'))
-    .pipe(gulp.dest('dist/styles'));
+    .pipe(gulp.dest('pages'))
 });
 
 // VIEWS
@@ -238,7 +243,7 @@ gulp.task('views:dist', function() {
 var usemin = require('gulp-usemin');
 var nginclude = require('gulp-nginclude');
 var cleancss = require('gulp-cleancss');
-gulp.task('usemin:pages', function() {
+gulp.task('usemin:pages', ['styles:docs'], function() {
   gulp.src('index.html', {cwd: paths.docs})
     .pipe(nginclude({assetsDirs: [paths.src]}))
     .pipe(usemin({
@@ -312,8 +317,8 @@ gulp.task('copy:pages', function() {
 // DEFAULT
 //
 gulp.task('default', ['build']);
-gulp.task('test', ['clean:test', 'jshint', 'karma:unit']);
+gulp.task('test', ['clean:test', 'jshint', 'templates:test', 'karma:unit']);
 gulp.task('build', ['clean:dist', 'templates:dist', 'scripts:dist']);
-gulp.task('pages', ['clean:pages', 'styles:docs', 'usemin:pages', 'templates:docs', 'copy:pages']);
+gulp.task('pages', ['clean:pages', 'usemin:pages', 'templates:docs', 'copy:pages']);
 gulp.task('serve', ['clean:dist', 'styles:docs', 'connect:docs', 'watch:docs', 'watch:dev', 'open:docs']);
 

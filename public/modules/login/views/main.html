@@ -9,6 +9,9 @@
         <div class="row">
           <div class="controls col-md-6 col-md-offset-3">
             <input id="email" name="email" type="email" placeholder="{{lang.email}}" ng-model="login.email" ng-keyup="err403=false" required="true" class="form-control"/>
+            <div ng-messages="loginForm.email.$error" class="err-msg-box">
+              <div ng-message="required" class="err-msg">{{ lang.error.required }}</div>
+            </div>
             <div ng-show="err_email_req=loginForm.email.$error.required &amp;&amp; !loginForm.email.$pristine" class="err-msg">{{ lang.error.required }}</div>
             <div ng-show="err_email=loginForm.email.$error.email &amp;&amp; !loginForm.email.$pristine" class="err-msg">{{ lang.error.email }}</div>
             <div ng-show="err403" class="err-msg">{{ lang.error.403 }}</div>
