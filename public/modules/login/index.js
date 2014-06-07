@@ -2,10 +2,9 @@ define(function (require) {
 
 	var angular=require('angular');
 	require('ngResource');
-	require('ngMessages');
 
 
-	var module = angular.module('login', ['ngResource','ngMessages']);
+	var module = angular.module('login', ['ngResource']);
 
 // common components
 	require('formAutofillFix')(module);

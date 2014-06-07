@@ -22,8 +22,6 @@
               ng-keyup="err403=false"
               required="true"
             )
-            .err-msg-box( ng-messages="loginForm.email.$error")
-              .err-msg( ng-message="required") {{ lang.error.required }}
             .err-msg(ng-show="err_email_req=loginForm.email.$error.required && !loginForm.email.$pristine") {{ lang.error.required }}
             .err-msg(ng-show="err_email=loginForm.email.$error.email && !loginForm.email.$pristine") {{ lang.error.email }}
             .err-msg(ng-show="err403") {{ lang.error.403 }}
