@@ -3,7 +3,6 @@ require.config({
 		'jquery': '../bower_components/jquery/dist/jquery.min.js',//v2.1
 		'angular': '../bower_components/angular/angular',
 		'ngResource':'../bower_components/angular-resource/angular-resource.min',
-		'ngMessages':'../bower_components/angular-messages/angular-messages.min',
 		'ngAnimate':'../bower_components/angular-animate/angular-animate.min',
 		'ngRoute':'../bower_components/angular-route/angular-route.min',
 		'ui_bootstrap_tpls':'../bower_components/angular-bootstrap/ui-bootstrap-tpls.min',
