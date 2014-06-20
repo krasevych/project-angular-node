@@ -6,7 +6,6 @@ var config = require('config');
 var HttpError = require('error');
 var MongoStore=require('connect-mongo')(express);
 //var db = require('createDB');
-
 var app = express();
 
 // all environments
