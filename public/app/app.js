@@ -10,6 +10,7 @@ define(function (require) {
 	require('../modules/login/index.js');
 	require('../modules/registration/index.js');
 	require('../modules/footer/index.js');
+	require('../modules/chat/index.js');
 
 // created module of app
 	 var app=angular.module('app',
@@ -22,7 +23,8 @@ define(function (require) {
 			 'home',
 			 'login',
 			 'registration',
-			 'footer'
+			 'footer',
+          'chat'
 		 ]);
 
 //	require  components of app
