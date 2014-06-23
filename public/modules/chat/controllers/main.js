@@ -14,23 +14,51 @@ define(function (require) {
 				function ($scope, $res, service,chatStorage) {
 //					values
 //					  var
-					var who=service.run();
 
 //					  $scope
 					$scope.lang=$res.lang();
+               $scope.msgList=chatStorage.get();
 
 //					  $rootScope
 
 //					buttons
+               $scope.putMsg=function(newMsg,e){
+                  if (e.keyCode==13) {
+                     var data={
+                        id:new Date().getTime(),
+                        name:newMsg.name,
+                        text:newMsg.text
+                     };
+
+                     chatStorage.put(data);
+                     newMsg.text='';
+                  }
+               }
 
 //					watches
 
 //					events
 //               testing
-               chatStorage.put({name:"Teddy",msg:"hello"})
-               chatStorage.put({name:"Teddy2",msg:"hello2"})
-               chatStorage.put({name:"Teddy3",msg:"hello3"})
-               console.log(chatStorage.get());
+               $scope.getMsgList=function(){
+                 chatStorage.getNewMsg(function(list){
+                    console.log(arguments)
+                    $scope.$apply(function(){
+                       $scope.msgList=list;
+                    })
+
+                     $scope.getMsgList();
+                  });
+               }
+          /*     $scope.getMsgList=function(){
+                  var newMsg=chatStorage.getNewMsg();
+                  newMsg.then(function(list){
+                     $scope.msgList=list;
+                     console.log(arguments)
+
+                     $scope.getMsgList();
+                  });
+               }*/
+
 
 
             }

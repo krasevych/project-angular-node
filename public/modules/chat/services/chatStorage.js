@@ -1,9 +1,12 @@
 define(function(require)
 {
 	return function(module){
-	module.factory('chatStorage', ['$timeout', function ($timeout) {
+	module.factory('chatStorage', ['$timeout','$q', function ($timeout,$q) {
       var STORAGE_NAME = 'chat-messages';
-      localStorage.removeItem(STORAGE_NAME);
+      var old_storage=[];
+      var new_storage=[];
+
+//      localStorage.removeItem(STORAGE_NAME);
       return {
          get: function () {
             return JSON.parse(localStorage.getItem(STORAGE_NAME) || '[]');
@@ -16,27 +19,16 @@ define(function(require)
             localStorage.setItem(STORAGE_NAME, JSON.stringify(msg_list));
          },
 
-         waitGet:function(callback){
+         getNewMsg:function(callback) {
             var _this=this;
-            var old_storage=[];
-            var new_storage=[];
-
-            if(old_storage){
-               new_storage=this.get();
-               if(!angular.equals(old_storage,new_storage)){
-                  callback(new_storage);
-                  old_storage=new_storage;
-               }
-
-            }else{
-               old_storage=this.get();
-               callback(old_storage);
-            }
-
-
-            $timeout(function(){
-               _this.waitGet(callback);
+            setInterval(function(){
+                  new_storage=_this.get();
+                  if(old_storage.length!=new_storage.length){
+                     old_storage=new_storage;
+                     callback(new_storage);
+                  }
             },300)
+
          }
       };
    }]);

@@ -1,4 +1,16 @@
 
-<div id="chat" ng-controller="chat" ng-cloak="ng-cloak" class="chat">
-  <div class="container">{{ lang.hello }}</div>
+<div id="chat" ng-controller="chat" ng-init="getMsgList()" ng-cloak="ng-cloak" class="chat">
+  <div class="container">{{ lang.hello }}
+    <div class="msgList">
+      <ul>
+        <li ng-repeat="msg in msgList"><span class="name">{{ msg.name }}</span><span class="msg">{{ msg.text }}</span></li>
+      </ul>
+    </div>
+    <div class="nameUser">
+      <input type="text" ng-model="newMsg.name"/>
+    </div>
+    <div class="newMsg">
+      <input type="text" ng-model="newMsg.text" ng-keyup="putMsg(newMsg,$event)"/>
+    </div>
+  </div>
 </div>
