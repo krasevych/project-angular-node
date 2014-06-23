@@ -1,55 +1,54 @@
 define(function (require) {
-	return function (module) {
-		require('../services/chatStorage.js')(module);
-		require('../services/resource.js')(module);
+   return function (module) {
+      require('../services/chatStorage.js')(module);
+      require('../services/resource.js')(module);
 
-		module.controller('chat',
-			[
-				'$scope',
-				'chat.$resource',
-            '$chatStorage',
+      module.controller('chat',
+          [
+             '$scope',
+             'chat.$resource',
+             '$chatStorage',
 
-				function ($scope, $res, $chatStorage) {
-
+             function ($scope, $res, $chatStorage) {
 //					values
 //					  var
 
 //					  $scope
-					$scope.lang=$res.lang({lang:'en.json'});
-               $scope.msgList=$chatStorage.get();
+                $scope.lang = $res.lang({lang: 'en.json'});
+                $scope.msgList = $chatStorage.get();
 
 //					  $rootScope
 
 //					buttons
-               $scope.putMsg=function(newMsg,e){
-                  if (e.keyCode==13 && newMsg.text && newMsg.name) {
+                $scope.putMsg = function (newMsg, e) {
+                   if (e.keyCode == 13 && newMsg.text && newMsg.name) {
 
-                     var data={
-                        id:new Date().getTime(),
-                        name:newMsg.name,
-                        text:newMsg.text
-                     };
+                      var data = {
+                         id: new Date().getTime(),
+                         name: newMsg.name,
+                         text: newMsg.text
+                      };
 
-                     $chatStorage.put(data);
-                     newMsg.text='';
-                     $scope.msgList.push(data);
-                  }
-               };
-               $scope.getMsgList=function(){
-                  $chatStorage.getNewMsg(function(list){
-                     $scope.$apply(function(){
-                        $scope.msgList=list;
-                     })
+                      $chatStorage.put(data);
+                      newMsg.text = '';
+                      $scope.msgList.push(data);
+                   }
+                };
+                $scope.getMsgList = function () {
+                   $chatStorage.getNewMsg(function (list) {
+                      $scope.$apply(function () {
+                         $scope.msgList = list;
+                      })
 
-                     $scope.getMsgList();
-                  });
-               };
+                      $scope.getMsgList();
+                   });
+                };
 
 //					watches
 
 //					events
-            }
-			]);
-	}
+             }
+          ]);
+   }
 
 });
