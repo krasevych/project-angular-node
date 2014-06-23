@@ -16,14 +16,15 @@ define(function (require) {
 //					  var
 
 //					  $scope
-					$scope.lang=$res.lang();
+					$scope.lang=$res.lang({lang:'en.json'});
                $scope.msgList=chatStorage.get();
 
 //					  $rootScope
 
 //					buttons
                $scope.putMsg=function(newMsg,e){
-                  if (e.keyCode==13) {
+                  if (e.keyCode==13 && newMsg.text && newMsg.name) {
+                     console.log(newMsg.text);
                      var data={
                         id:new Date().getTime(),
                         name:newMsg.name,

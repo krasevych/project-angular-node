@@ -13,7 +13,7 @@ define(function(require)
 				lang:{
 					method:'GET',
 					cache:true,
-					url:'/modules/chat/json/lang.json'
+					url:'/modules/chat/json/lang/:lang'
 				}
 			}
 		);

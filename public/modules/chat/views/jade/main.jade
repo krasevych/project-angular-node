@@ -1,17 +1,20 @@
 #chat.chat(ng-controller="chat" ng-init="getMsgList()"  ng-cloak )
   .container
     {{ lang.hello }}
-    .msgList
-      ul
-        li(ng-repeat="msg in msgList")
-          span.name {{ msg.name }}
-          span.msg {{ msg.text }}
+
+    ul.msgList
+      li(ng-repeat="msg in msgList")
+        span.name {{ msg.name }}:
+        span.msg {{ msg.text }}
+
     .nameUser
       input(type="text"
         ng-model="newMsg.name"
+        placeholder="{{ lang.write_name }}"
       )
     .newMsg
       input(type="text"
+        placeholder="{{ lang.write_msg }}"
         ng-model="newMsg.text"
         ng-keyup="putMsg(newMsg,$event)"
       )
