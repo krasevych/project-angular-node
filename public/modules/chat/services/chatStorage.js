@@ -1,10 +1,10 @@
 define(function(require)
 {
 	return function(module){
-	module.factory('chatStorage', ['$timeout','$q', function ($timeout,$q) {
+	module.factory('$chatStorage', ['$timeout', function ($timeout,$q) {
       var STORAGE_NAME = 'chat-messages';
-      var old_storage=[];
-      var new_storage=[];
+      var msg_list=[];
+      var new_msg_list=[];
 
 //      localStorage.removeItem(STORAGE_NAME);
       return {
@@ -13,7 +13,7 @@ define(function(require)
          },
 
          put: function (msg) {
-           var msg_list=this.get();
+            msg_list=this.get();
             msg_list.push(msg);
 
             localStorage.setItem(STORAGE_NAME, JSON.stringify(msg_list));
@@ -22,10 +22,10 @@ define(function(require)
          getNewMsg:function(callback) {
             var _this=this;
             setInterval(function(){
-                  new_storage=_this.get();
-                  if(old_storage.length!=new_storage.length){
-                     old_storage=new_storage;
-                     callback(new_storage);
+                  new_msg_list=_this.get();
+                  if(msg_list.length!=new_msg_list.length){
+                     msg_list=new_msg_list;
+                     callback(new_msg_list);
                   }
             },300)
 
