@@ -10,6 +10,7 @@ define(function (require) {
             '$chatStorage',
 
 				function ($scope, $res, $chatStorage) {
+
 //					values
 //					  var
 
