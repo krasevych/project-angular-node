@@ -34,33 +34,20 @@ define(function (require) {
                      chatStorage.put(data);
                      newMsg.text='';
                   }
-               }
+               };
+               $scope.getMsgList=function(){
+                  chatStorage.getNewMsg(function(list){
+                     $scope.$apply(function(){
+                        $scope.msgList=list;
+                     })
+
+                     $scope.getMsgList();
+                  });
+               };
 
 //					watches
 
 //					events
-//               testing
-               $scope.getMsgList=function(){
-                 chatStorage.getNewMsg(function(list){
-                    console.log(arguments)
-                    $scope.$apply(function(){
-                       $scope.msgList=list;
-                    })
-
-                     $scope.getMsgList();
-                  });
-               }
-          /*     $scope.getMsgList=function(){
-                  var newMsg=chatStorage.getNewMsg();
-                  newMsg.then(function(list){
-                     $scope.msgList=list;
-                     console.log(arguments)
-
-                     $scope.getMsgList();
-                  });
-               }*/
-
-
 
             }
 			]);
