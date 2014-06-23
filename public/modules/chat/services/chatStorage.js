@@ -1,7 +1,7 @@
 define(function(require)
 {
 	return function(module){
-	module.factory('$chatStorage', ['$timeout', function ($timeout,$q) {
+	module.factory('$chatStorage', ['$timeout', function () {
       var STORAGE_NAME = 'chat-messages';
       var msg_list=[];
       var new_msg_list=[];
